@@ -12,9 +12,13 @@ import { SiJordan } from "react-icons/si";
 import { GiConverseShoe } from "react-icons/gi";
 import { GoPackage } from "react-icons/go";
 import { BsPatchQuestion } from "react-icons/bs";
+import { useUserContext } from "../../context/user_context";
+import LogoutAccount from "./LogoutAccount";
 const Navbar = () => {
   const [showHelpLinks, setShowHelpLinks] = useState(false);
   const [showNavMenu, setShowNavMenu] = useState(false);
+  const { logout, user, loginWithRedirect } = useUserContext();
+
   return (
     <nav>
       <div className="top-nav-menu">
@@ -29,14 +33,20 @@ const Navbar = () => {
         <Link to="/joinus" className="nav-top-link">
           Join Us
         </Link>
-        <div></div>
-        <Link
-          to="/login"
-          className="nav-top-link"
-          style={{ marginRight: "1.2rem" }}
-        >
-          Sign In
-        </Link>
+        {!user && <div></div>}
+
+        {user ? (
+          <LogoutAccount logout={logout} user={user} />
+        ) : (
+          <Link
+            to="/login"
+            className="nav-top-link"
+            style={{ marginRight: "1.2rem" }}
+            onClick={loginWithRedirect}
+          >
+            Sign In
+          </Link>
+        )}
       </div>
       {showHelpLinks && <HelpLinks setShowHelpLinks={setShowHelpLinks} />}
       <div className="icons-container">
@@ -85,18 +95,30 @@ const Navbar = () => {
             </Link>
           );
         })}
-        <div
-          style={{ display: "flex", margin: "1.5rem 0", alignItems: "center" }}
+        <Link
+          to="/jordan"
+          style={{
+            display: "flex",
+            margin: "1.5rem 0",
+            alignItems: "center",
+            color: "#111827",
+          }}
         >
           <SiJordan style={{ marginRight: "1rem" }} />
           <p style={{ fontSize: "1.2rem" }}>Jordan</p>
-        </div>
-        <div
-          style={{ display: "flex", margin: "0rem 0", alignItems: "center" }}
+        </Link>
+        <Link
+          to="/converse"
+          style={{
+            display: "flex",
+            margin: "0rem 0",
+            alignItems: "center",
+            color: "#111827",
+          }}
         >
           <GiConverseShoe style={{ marginRight: "1rem" }} />
           <p style={{ fontSize: "1.2rem" }}>Converse</p>
-        </div>
+        </Link>
         <h4
           style={{
             maxWidth: "300px",
@@ -118,9 +140,14 @@ const Navbar = () => {
           <Link to="/joinus" className="nav-menu-btn join-us">
             Join Us
           </Link>
-          <Link to="/Sign In" className="nav-menu-btn sign-in">
+          <button
+            to="/Sign In"
+            className="nav-menu-btn sign-in"
+            style={{ fontSize: "1.1rem" }}
+            onClick={loginWithRedirect}
+          >
             Sign In
-          </Link>
+          </button>
         </div>
         <div style={{ marginTop: "3rem" }}>
           <Link to="/cart" className="nav-menu-footer-link">

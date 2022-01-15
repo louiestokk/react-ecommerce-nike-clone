@@ -34,7 +34,7 @@ const Wrapper = styled.section`
   width: 16rem;
   height: 22rem;
   border-radius: 10px 10px;
-  right: 14%;
+  left: 23%;
   .help-link {
     color: #111827;
     opacity: 0.6;

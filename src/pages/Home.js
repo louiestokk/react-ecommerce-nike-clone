@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import Hero from "../components/Hero";
 const Home = () => {
   return (
     <>
@@ -8,6 +8,7 @@ const Home = () => {
         <h4>Save Up to 40%</h4>
         <Link to="/">Shop all your favorites link</Link>
       </div>
+      <Hero />
     </>
   );
 };

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Mochiy+Pop+P+One&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -18,13 +19,16 @@ nav {
   position: relative;
 }
 .top-nav-menu {
+  position: relative;
   background: var(--mainGray);
   height: 2.4rem;
   display: flex;
-  justify-content: end;
+  justify-content: center;
+  width: 100%;
   align-items: center;
   color: var(--mainTextColor);
   font-size: 0.85rem;
+  margin-right: 2rem;
 }
 .top-nav-menu div {
   background: var(--mainTextColor);
@@ -86,17 +90,6 @@ nav {
 }
 /* end of nav */
 
-/* Home */
-.home-text-slider {
-  height: 3.8rem;
-  width: 100%;
-  background: var(--mainGray);
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 .nav-menu {
   position: absolute;
   transition: all 0.3s linear;
@@ -104,7 +97,8 @@ nav {
   z-index: 99;
   background: white;
   width: 100%;
-  top: 20%;
+  height: 1200px;
+  top: 0%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -137,6 +131,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 .join-us {
   color: white;
@@ -158,8 +153,62 @@ nav {
 .nav-menu-footer-icon {
   margin-right: 1rem;
 }
+/* Home */
+.home-text-slider {
+  height: 3.8rem;
+  width: 100%;
+  background: var(--mainGray);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 /* End of Home */
-
+/* Hero */
+.hero {
+  position: relative;
+  background: url("./images/nikeshoe.jpg"), no-repeat;
+  height: 500px;
+  background-position: center;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.hero-content {
+  position: absolute;
+  bottom: 16%;
+  color: white;
+}
+.hero-content h1 {
+  font-size: 4.4rem;
+  max-width: 400px;
+  font-family: "Anton", sans-serif;
+  line-height: 70px;
+  margin-left: 2rem;
+}
+.hero-content p {
+  margin: 1rem 2rem;
+  font-size: 1.1rem;
+  max-width: 300px;
+  line-height: 20px;
+}
+.hero-content button {
+  margin: 1rem 2rem;
+  width: 6rem;
+  height: 2.4rem;
+  background: white;
+  color: black;
+  font-size: 1rem;
+  border-radius: 15px 15px;
+  border: none;
+  cursor: pointer;
+}
+.hero-content button:hover {
+  opacity: 0.7;
+}
+/* end of Hero */
 @media screen and (max-width: 900px) {
   .top-nav-menu {
     display: none;
