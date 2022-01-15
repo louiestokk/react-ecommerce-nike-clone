@@ -225,3 +225,19 @@ nav {
     display: none;
   }
 }
+@media screen and (max-width: 680px) {
+  .hero-content {
+    bottom: -60%;
+    color: black;
+    margin: 1rem -2rem;
+  }
+  .hero-content button {
+    background: black;
+    color: white;
+  }
+  .hero-content h1 {
+    font-size: 3rem;
+    max-width: 300px;
+    line-height: 50px;
+  }
+}

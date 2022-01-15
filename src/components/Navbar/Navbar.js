@@ -53,7 +53,7 @@ const Navbar = () => {
         <img
           src={Logo}
           alt="nike logo"
-          style={{ width: "65px", height: "65px", margin: "0.2rem 1rem" }}
+          style={{ width: "65px", height: "65px", margin: "0.2rem 3rem" }}
         />
         <div
           style={{
