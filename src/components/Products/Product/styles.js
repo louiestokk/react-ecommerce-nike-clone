@@ -1,12 +1,14 @@
 import { makeStyles } from "@material-ui/core/styles";
 export default makeStyles(() => ({
   root: {
-    width: "100%",
-    height: "300px",
+    maxWidth: "100%",
+    height: "340px",
+    margin: "1rem 0.75rem",
   },
   media: {
-    height: 300,
-    width: 400,
-    backgroundPosition: "center",
+    height: "340px",
+    width: "280px",
+    // backgroundPosition: "center",
+    objectFit: "cover",
   },
 }));

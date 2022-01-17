@@ -305,12 +305,13 @@ nav {
 
 /* Filter.js */
 .filter-container {
-  margin-left: 1rem;
+  height: 1100px;
 }
 .filter-by-category h4 {
   font-size: 1.2rem;
   color: var(--mainTextColor);
   margin-bottom: 1rem;
+  margin-left: 1rem;
 }
 .filter-by-category h5 {
   font-size: 1rem;
@@ -332,6 +333,7 @@ nav {
   flex-direction: column;
   justify-content: center;
   overflow-y: scroll;
+  margin-left: 1rem;
 }
 
 .gender-filter {
@@ -345,11 +347,40 @@ nav {
   margin-left: 0.3rem;
   font-size: 1rem;
 }
+.filter-price {
+  height: 240px;
+}
 .filter-price div {
   margin-top: 0.5rem;
 }
 .filter-price label {
   margin-left: 0.3rem;
+}
+.filter-color {
+  border-top: 1px solid rgb(226, 225, 225);
+  border-bottom: 1px solid rgb(226, 225, 225);
+  width: 150px;
+  font-family: "Roboto", sans-serif;
+  height: 270px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-y: scroll;
+  margin-top: 0.5rem;
+}
+.filter-color p {
+  margin-left: 0.3rem;
+  margin-top: 0.5rem;
+}
+.color {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 0.2rem;
+  padding: 0 0;
 }
 
 /* End of Filter.js */
@@ -379,6 +410,9 @@ nav {
     display: none;
   }
   .products-top-div {
+    display: none;
+  }
+  .sss {
     display: none;
   }
 }

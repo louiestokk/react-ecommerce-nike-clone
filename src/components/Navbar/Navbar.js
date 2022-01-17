@@ -15,11 +15,12 @@ import { BsPatchQuestion } from "react-icons/bs";
 import { useUserContext } from "../../context/user_context";
 import LogoutAccount from "./LogoutAccount";
 import { BsHeart } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const [showHelpLinks, setShowHelpLinks] = useState(false);
   const [showNavMenu, setShowNavMenu] = useState(false);
   const { logout, user, loginWithRedirect } = useUserContext();
-
+  let navigate = useNavigate();
   return (
     <nav>
       <div className="top-nav-menu">
@@ -54,7 +55,13 @@ const Navbar = () => {
         <img
           src={Logo}
           alt="nike logo"
-          style={{ width: "65px", height: "65px", margin: "0.2rem 3rem" }}
+          style={{
+            width: "65px",
+            height: "65px",
+            margin: "0.2rem 3rem",
+            cursor: "pointer",
+          }}
+          onClick={() => navigate("/")}
         />
         <div
           style={{
