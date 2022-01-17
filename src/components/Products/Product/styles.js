@@ -8,7 +8,6 @@ export default makeStyles(() => ({
   media: {
     height: "340px",
     width: "280px",
-    // backgroundPosition: "center",
     objectFit: "cover",
   },
 }));
