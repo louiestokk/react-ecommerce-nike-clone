@@ -1,34 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
-const Home = () => {
+import HomeTextSlider from "../components/HomeTextSlider";
+const Home = ({ products }) => {
   return (
     <>
-      <div className="home-text-slider">
-        <h4
-          style={{
-            letterSpacing: "1px",
-            margin: "0.2rem 0",
-            color: "#111827",
-            fontSize: "0.9rem",
-          }}
-        >
-          Save Up to 40%
-        </h4>
-        <Link
-          to="/"
-          style={{
-            letterSpacing: "1px",
-            fontSize: "0.86rem",
-            borderBottom: "1px solid gray",
-            color: "#111827",
-            margin: ".2rem 0",
-          }}
-        >
-          Shop all your favorites
-        </Link>
-      </div>
+      <HomeTextSlider />
       <Hero />
+      <h2 className="best-airmax-text">The Best of Air Max</h2>
+      <div className="airmax-container">
+        {products.map((product) => {
+          return (
+            <div
+              className="airmax"
+              key={product.id}
+              style={{
+                marginLeft: product.name === "Nike Air Vapor Max" && "1rem",
+              }}
+            >
+              <img src={product.image.url} alt={product.name} />
+              <h5>{product.name}</h5>
+              <Link
+                to="/products/sneakers/airmax"
+                style={{
+                  color: "black",
+                  borderBottom: "1px solid black",
+                  fontSize: "1.2rem",
+                }}
+              >
+                Shop
+              </Link>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 };

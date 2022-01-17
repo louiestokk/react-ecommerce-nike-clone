@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Mochiy+Pop+P+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Dongle:wght@300&family=Mochiy+Pop+P+One&family=Roboto:ital,wght@0,700;1,300&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -13,6 +14,18 @@ a {
 }
 li {
   list-style-type: none;
+}
+input[type="checkbox"] {
+  width: 1.3em;
+  height: 1.3em;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
 }
 /* nav */
 nav {
@@ -153,18 +166,40 @@ nav {
 .nav-menu-footer-icon {
   margin-right: 1rem;
 }
-/* Home */
-.home-text-slider {
-  height: 3.8rem;
+/* text slider */
+.text-slider-container {
+  text-align: center;
+  height: 3.85rem;
   width: 100%;
   background: var(--mainGray);
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  transition: all 0.3s linear;
 }
-/* End of Home */
+.text-slider-container a {
+  color: var(--mainTextColor);
+  border-bottom: 1px solid gray;
+  cursor: pointer;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+.text-slider-container h4 {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin: 0.1rem 0;
+}
+.text-slide {
+  transition: all 0.3s linear;
+  width: 100%;
+  transform: translateX(-100%);
+}
+.text-show-slide {
+  transform: translateX(0%);
+  transition: all 0.3 linear;
+}
+
+/* end of text slider */
 /* Hero */
 .hero {
   position: relative;
@@ -209,6 +244,115 @@ nav {
   opacity: 0.7;
 }
 /* end of Hero */
+
+/* Products Home */
+.airmax-container {
+  display: flex;
+  overflow-x: scroll;
+  font-family: "Dongle", sans-serif;
+}
+.airmax {
+  margin-right: 0.3rem;
+}
+.airmax img {
+  width: 300px;
+  height: 300px;
+}
+.airmax h5 {
+  margin-top: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 100;
+  margin-bottom: 1rem;
+}
+
+.best-airmax-text {
+  margin: 0.5rem 0.5rem;
+  font-weight: 100;
+}
+/* end of Products Home */
+
+/* Products Products.js */
+.products-top {
+  font-family: "Dongle", sans-serif;
+  height: 100%;
+  width: 100%;
+  overflow-x: scroll;
+  border-bottom: 1px solid rgb(219, 217, 217);
+}
+.products-top-h4 {
+  font-size: 2rem;
+  margin: 1.6rem 1rem;
+  font-family: "Dongle", sans-serif;
+}
+.products-top-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 2.4rem;
+  font-family: "Dongle", sans-serif;
+  border-bottom: 1px solid rgb(226, 225, 225);
+}
+.numItems {
+  margin-left: 1rem;
+  font-size: 1.7rem;
+  font-family: "Dongle", sans-serif;
+  font-weight: 100;
+  margin-top: 0.7rem;
+  color: rgb(167, 167, 167);
+}
+/*End of Products Products.js */
+
+/* Filter.js */
+.filter-container {
+  margin-left: 1rem;
+}
+.filter-by-category h4 {
+  font-size: 1.2rem;
+  color: var(--mainTextColor);
+  margin-bottom: 1rem;
+}
+.filter-by-category h5 {
+  font-size: 1rem;
+  color: var(--mainTextColor);
+  margin-top: 0.35rem;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+.filter-by-category h5:hover {
+  opacity: 0.7;
+}
+.filter-category {
+  border-top: 1px solid rgb(226, 225, 225);
+  width: 150px;
+  font-family: "Roboto", sans-serif;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: scroll;
+}
+
+.gender-filter {
+  display: flex;
+  flex-direction: column;
+}
+.gender-filter div {
+  margin-top: 0.5rem;
+}
+.gender-filter label {
+  margin-left: 0.3rem;
+  font-size: 1rem;
+}
+.filter-price div {
+  margin-top: 0.5rem;
+}
+.filter-price label {
+  margin-left: 0.3rem;
+}
+
+/* End of Filter.js */
 @media screen and (max-width: 900px) {
   .top-nav-menu {
     display: none;
@@ -219,9 +363,22 @@ nav {
   .nav-links {
     display: none;
   }
+  .heart-icon {
+    display: none;
+  }
+  .filter-container {
+    display: none;
+  }
 }
+
 @media screen and (min-width: 900px) {
+  .navbar-icon {
+    display: none;
+  }
   .out-search-icon {
+    display: none;
+  }
+  .products-top-div {
     display: none;
   }
 }
@@ -239,5 +396,31 @@ nav {
     font-size: 3rem;
     max-width: 300px;
     line-height: 50px;
+  }
+  .hero {
+    margin-bottom: 24rem;
+  }
+  .best-airmax-text {
+    margin-left: 1.1rem;
+  }
+  .text-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .text-slide a {
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+  }
+  .category-text-smallerscreen {
+    display: none;
+  }
+}
+@media screen and (min-width: 680px) {
+  .best-airmax-text {
+    margin-top: 6rem;
+    margin-left: 3rem;
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
   }
 }

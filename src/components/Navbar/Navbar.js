@@ -14,6 +14,7 @@ import { GoPackage } from "react-icons/go";
 import { BsPatchQuestion } from "react-icons/bs";
 import { useUserContext } from "../../context/user_context";
 import LogoutAccount from "./LogoutAccount";
+import { BsHeart } from "react-icons/bs";
 const Navbar = () => {
   const [showHelpLinks, setShowHelpLinks] = useState(false);
   const [showNavMenu, setShowNavMenu] = useState(false);
@@ -59,6 +60,7 @@ const Navbar = () => {
           style={{
             margin: "0.2rem 1rem",
             display: "flex",
+            alignItems: "center",
           }}
         >
           <div className="nav-links">
@@ -75,9 +77,10 @@ const Navbar = () => {
             <input type="text" placeholder="Search" className="nav-search" />
           </div>
           <FiSearch className="nav-icon out-search-icon" />
+          <BsHeart className="nav-icon heart-icon" />
           <BsBag className="nav-icon" />
           <AiOutlineBars
-            className="nav-icon"
+            className="nav-icon navbar-icon"
             onClick={() => setShowNavMenu(!showNavMenu)}
           />
         </div>
