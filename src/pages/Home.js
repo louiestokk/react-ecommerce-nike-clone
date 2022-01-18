@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
 import HomeTextSlider from "../components/HomeTextSlider";
-const Home = ({ products }) => {
+import { useProductsContext } from "../context/products_context";
+const Home = () => {
+  const { products } = useProductsContext();
   return (
     <>
       <HomeTextSlider />

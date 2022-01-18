@@ -9,5 +9,12 @@ export default makeStyles(() => ({
     height: "340px",
     width: "280px",
     objectFit: "cover",
+    marginRight: "0.5rem",
   },
+  name: {
+    color: "black",
+    fontSize: "0.85rem",
+    fontWeight: "100",
+  },
+  cardcontent: {},
 }));

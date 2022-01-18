@@ -4,6 +4,8 @@ import "./index.css";
 import App from "./App";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { UserProvider } from "./context/user_context";
+import { FilterProvider } from "./context/filter_context";
+import { ProductsProvider } from "./context/products_context";
 
 ReactDOM.render(
   <Auth0Provider
@@ -13,7 +15,11 @@ ReactDOM.render(
     cacheLocation="localstorage"
   >
     <UserProvider>
-      <App />
+      <ProductsProvider>
+        <FilterProvider>
+          <App />
+        </FilterProvider>
+      </ProductsProvider>
     </UserProvider>
   </Auth0Provider>,
   document.getElementById("root")

@@ -5,7 +5,9 @@ import { BsFilter } from "react-icons/bs";
 import Filter from "../Filter/Filter";
 import { Grid } from "@material-ui/core";
 import Product from "./Product/Product";
-const Products = ({ products, categories, setProducts, colors }) => {
+import { useProductsContext } from "../../context/products_context";
+const Products = () => {
+  const { products, categories, setProducts } = useProductsContext();
   const classes = useStyles();
   return (
     <>
@@ -37,13 +39,13 @@ const Products = ({ products, categories, setProducts, colors }) => {
         </div>
       </section>
       <div className={classes.root}>
-        <Filter categories={categories} colors={colors} />
+        <Filter />
         <div className={classes.container}>
           <div />
           <Grid container className={classes.products}>
-            {products.map((product) => {
+            {products.map((product, ind) => {
               return (
-                <Grid key={product.id} className={classes.product}>
+                <Grid key={ind} className={classes.product}>
                   <Product product={product} />
                 </Grid>
               );

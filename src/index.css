@@ -292,6 +292,7 @@ nav {
   height: 2.4rem;
   font-family: "Dongle", sans-serif;
   border-bottom: 1px solid rgb(226, 225, 225);
+  overflow-x: scroll;
 }
 .numItems {
   margin-left: 1rem;

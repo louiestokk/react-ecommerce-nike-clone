@@ -1,27 +1,57 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import useStyles from "./styles";
-let uniqcolors;
-const Filter = ({ categories, colors }) => {
-  const [checked25, setChecked25] = useState(false);
-  const [checked50, setChecked50] = useState(false);
-  const [checked100, setChecked100] = useState(false);
-  const [checked150, setChecked150] = useState(false);
-  const [checkedover150, setCheckedOver150] = useState(false);
+import { useFilterContext } from "../../context/filter_context";
+import { useProductsContext } from "../../context/products_context";
+import { commerce } from "../lib/commerce";
+
+const Filter = () => {
+  const { categories, uniqcolor, products, setProducts } = useProductsContext();
+  const {
+    checked25,
+    checked50,
+    checked100,
+    checked150,
+    checkedover150,
+    setChecked25,
+    setChecked50,
+    setChecked100,
+    setChecked150,
+    setCheckedOver150,
+  } = useFilterContext();
   const classes = useStyles();
-  const newarr = [].concat(...colors).map((color) => {
-    uniqcolors = color.options;
+
+  //
+  document.querySelectorAll(".gender-cont").forEach((gender) => {
+    gender.addEventListener("click", (e) => {
+      fetchProductsCategory(e.currentTarget.textContent);
+    });
   });
-  let uniqcolor = uniqcolors.map((el) => el.name);
+  //
+
+  const fetchProductsCategory = async (param) => {
+    const resp = await commerce.products
+      .list({
+        category_slug: [`${param}`],
+      })
+      .then((response) => response.data);
+    setProducts(resp);
+  };
 
   return (
     <section className="filter-container">
       <div className="filter-by-category">
         <h4>Shop by Category</h4>
         <div className="filter-category">
-          {categories.map((category, index) => {
+          {categories.map((category, ind) => {
             return (
-              <h5 key={index} style={{ marginLeft: "0.5rem" }}>
+              <h5
+                key={ind}
+                style={{ marginLeft: "0.5rem" }}
+                onClick={(e) =>
+                  fetchProductsCategory(e.currentTarget.textContent)
+                }
+              >
                 {category}
               </h5>
             );
@@ -29,16 +59,16 @@ const Filter = ({ categories, colors }) => {
         </div>
       </div>
       <div className="gender-filter filter-category">
-        <div>
-          <input type="checkbox" value="men" />
+        <div className="gender-cont">
+          <input type="checkbox" value="Men" />
           <label htmlFor="men">Men</label>
         </div>
-        <div>
-          <input type="checkbox" value="women" />
+        <div className="gender-cont">
+          <input type="checkbox" value="Women" />
           <label htmlFor="women">Women</label>
         </div>
-        <div>
-          <input type="checkbox" value="kids" />
+        <div className="gender-cont">
+          <input type="checkbox" value="Kids" />
           <label htmlFor="kids">Kids</label>
         </div>
       </div>
@@ -130,9 +160,5 @@ const Filter = ({ categories, colors }) => {
 };
 
 export default Filter;
-// filter på filter, först text category och sen color,render category and products of the category
-// Gender checkbox när man clickar så byt checkbox rutan mot en icon svart check som nike
-// Shop by Price
-// color
+
 // free deliver shipping fee price === 0
-// clear filter
