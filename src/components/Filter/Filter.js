@@ -7,6 +7,7 @@ import { commerce } from "../lib/commerce";
 
 const Filter = () => {
   const { categories, uniqcolor, products, setProducts } = useProductsContext();
+
   const {
     checked25,
     checked50,

@@ -10,7 +10,7 @@ import { commerce } from "./components/lib/commerce";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home";
 import Account from "./components/Account/Account";
-import SingelProduct from "./components/Products/SingelProduct.js/SingelProduct";
+import SingelProduct from "./components/Products/SingelProduct/SingelProduct";
 import Products from "./components/Products/Products";
 const App = () => {
   return (

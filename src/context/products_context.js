@@ -15,9 +15,10 @@ const ProductsProvider = ({ children }) => {
     const { data } = await commerce.products.list();
     setProducts(data);
     const color = [].concat(...data.map((el) => el.variant_groups));
-    const newarr = [].concat(...color).map((color) => {
-      setuniqcolor(color.options.map((el) => el.name));
+    const newarr = [].concat(...color).map((col) => {
+      return col.options.map((el) => el.name);
     });
+    setuniqcolor(Array.from(new Set([].concat(...newarr))));
   };
 
   const fetchCategoirs = async () => {
