@@ -4,6 +4,7 @@ export default makeStyles(() => ({
   root: {
     maxWidth: "100%",
     marginLeft: "0.2rem",
+    marginBottom: "3rem",
   },
   media: {
     width: "100%",
@@ -25,5 +26,7 @@ export default makeStyles(() => ({
     height: "160px",
     borderRadius: "5px 5px",
   },
-  sizeCont: {},
+  sizeCont: {
+    marginTop: "3rem",
+  },
 }));

@@ -10,15 +10,17 @@ const ProductsProvider = ({ children }) => {
   const [errormessage, setErrorMessage] = useState("");
   const [uniqcolor, setuniqcolor] = useState([]);
 
-  //
   const fetchProducst = async () => {
     const { data } = await commerce.products.list();
     setProducts(data);
+    //
     const color = [].concat(...data.map((el) => el.variant_groups));
-    const newarr = [].concat(...color).map((col) => {
-      return col.options.map((el) => el.name);
-    });
-    setuniqcolor(Array.from(new Set([].concat(...newarr))));
+    const prov = color
+      .filter((el) => el.name === "color")
+      .map((el) => el.options);
+    const colors = Array.from(new Set([].concat(...prov).map((el) => el.name)));
+    setuniqcolor(colors);
+    //
   };
 
   const fetchCategoirs = async () => {
@@ -57,3 +59,7 @@ export const useProductsContext = () => {
 };
 
 export { ProductsContext, ProductsProvider };
+
+// commercejs har api för category_slug ['sneakers','black']
+// commercejs api listing products sorted by highest price
+// commercejs api listing products serach query

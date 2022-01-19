@@ -12,6 +12,7 @@ import Home from "./pages/Home";
 import Account from "./components/Account/Account";
 import SingelProduct from "./components/Products/SingelProduct/SingelProduct";
 import Products from "./components/Products/Products";
+import Footer from "./components/Footer/Footer";
 const App = () => {
   return (
     <Router>
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/products" exact element={<Products />}></Route>
         <Route path="/product/:id" element={<SingelProduct />}></Route>
       </Routes>
+      <Footer />
     </Router>
   );
 };
