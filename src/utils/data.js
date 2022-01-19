@@ -20,7 +20,7 @@ export const footerlinkscol1 = [
   {
     id: 1,
     label: "Gift Cards",
-    url: "7giftcards",
+    url: "/giftcards",
   },
   {
     id: 2,
@@ -51,5 +51,64 @@ export const footerlinkscol1 = [
     id: 1,
     label: "send us feedback",
     url: "/sendfeedback",
+  },
+];
+export const footerlinkscol2 = [
+  {
+    id: 1,
+    label: "Order Status",
+    url: "/orderstatus",
+  },
+  {
+    id: 2,
+    label: "Shipping and Delivery",
+    url: "/delivery",
+  },
+  {
+    id: 3,
+    label: "Returns",
+    url: "/returns",
+  },
+  {
+    id: 4,
+    label: "Payment Options",
+    url: "/payment",
+  },
+  {
+    id: 5,
+    label: "Gift Card Balance",
+    url: "/giftcard",
+  },
+  {
+    id: 6,
+    label: "Contact Us",
+    url: "/contact",
+  },
+];
+export const footerlinkscol3 = [
+  {
+    id: 1,
+    label: "News",
+    url: "/news",
+  },
+  {
+    id: 2,
+    label: "Careers",
+    url: "/careers",
+  },
+  {
+    id: 3,
+    label: "Investors",
+    url: "/investors",
+  },
+  {
+    id: 4,
+    label: "Purpose",
+    url: "/purpose",
+  },
+  {
+    id: 5,
+    label: "Sustainability",
+    url: "/sustainability",
   },
 ];

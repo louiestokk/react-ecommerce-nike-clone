@@ -2,9 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import useStyles from "./styles";
 import { footerlinkscol1 } from "../../utils/data";
+import { footerlinkscol2 } from "../../utils/data";
+import { footerlinkscol3 } from "../../utils/data";
 import { BsTwitter } from "react-icons/bs";
 import { FaFacebookF } from "react-icons/fa";
-import { ImYoutube2 } from "react-icons/im";
+import { TiSocialYoutubeCircular } from "react-icons/ti";
+import { BiMap } from "react-icons/bi";
 import { TiSocialInstagram } from "react-icons/ti";
 const Footer = () => {
   const classes = useStyles();
@@ -21,23 +24,102 @@ const Footer = () => {
             );
           })}
         </div>
-        <div>Get Help</div>
-        <div>Get Help</div>
+        <div className={classes.links}>
+          <Link to="/" className={classes.link}>
+            GET HELP
+          </Link>
+          {footerlinkscol2.map((link) => {
+            const { id, url, label } = link;
+            return (
+              <Link key={id} to={url} className={classes.sublink}>
+                {label}
+              </Link>
+            );
+          })}
+        </div>
+        <div className={classes.links}>
+          <Link to="/" className={classes.link}>
+            ABOUT NIKE
+          </Link>
+          {footerlinkscol3.map((link) => {
+            const { id, url, label } = link;
+            return (
+              <Link key={id} to={url} className={classes.sublink}>
+                {label}
+              </Link>
+            );
+          })}
+        </div>
         <div className={classes.icons}>
-          <div>
+          <div className={classes.iconcont}>
             <BsTwitter />
           </div>
-          <div>
+          <div className={classes.iconcont}>
             <FaFacebookF />
           </div>
-          <div>
-            <ImYoutube2 />
+          <div className={classes.iconcont}>
+            <TiSocialYoutubeCircular />
           </div>
-          <div>
+          <div className={classes.iconcont}>
             <TiSocialInstagram />
           </div>
         </div>
       </article>
+      <div className={classes.divider}></div>
+      <div>
+        <div className={classes.bottomlinks}>
+          <Link to="/guides" className={classes.bottomlink}>
+            Guides
+          </Link>
+          <Link to="/terms" className={classes.bottomlink}>
+            Terms of State
+          </Link>
+          <Link to="/terms" className={classes.bottomlink}>
+            Terms of Use
+          </Link>
+          <Link to="/policy" className={classes.bottomlink}>
+            Nike Privacy Policy
+          </Link>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            alingItems: "center",
+            justifyContent: "space-between",
+            fontSize: "0.7rem",
+            marginTop: "2rem",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              marginLeft: "1rem",
+              alignItems: "center",
+            }}
+          >
+            <BiMap
+              style={{
+                marginRight: "0.3rem",
+                opacity: "1",
+                fontSize: "1.2rem",
+              }}
+            />
+            <p
+              style={{
+                fontSize: "0.7rem",
+                opacity: "0.7",
+                letterSpacing: "1px",
+              }}
+            >
+              United States{" "}
+            </p>
+            <br style={{ marginRight: "1rem" }} />
+            <p style={{ opacity: "0.5" }}>
+              &copy; {new Date().getFullYear()} Nike, Inc All Rights Reserved
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
