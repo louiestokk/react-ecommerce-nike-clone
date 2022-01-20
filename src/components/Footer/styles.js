@@ -7,6 +7,7 @@ export default makeStyles(() => ({
     background: "black",
     color: "white",
     marginBottom: "2rem",
+    marginTop: "2rem",
   },
   container: {
     display: "flex",
@@ -33,6 +34,11 @@ export default makeStyles(() => ({
     "&:hover": {
       opacity: "0.6",
     },
+    ["@media (max-width:644px)"]: {
+      // eslint-disable-line no-useless-computed-key
+      fontSize: "0.7rem",
+      marginLeft: "1rem",
+    },
   },
   sublink: {
     color: "white",
@@ -41,6 +47,12 @@ export default makeStyles(() => ({
     marginTop: "0.8rem",
     "&:hover": {
       opacity: "1",
+    },
+    ["@media (max-width:644px)"]: {
+      // eslint-disable-line no-useless-computed-key
+      fontSize: "0.7rem",
+      marginTop: "0.4rem",
+      marginLeft: "1rem",
     },
   },
   iconcont: {
@@ -55,6 +67,17 @@ export default makeStyles(() => ({
     opacity: "0.5",
     fontSize: "1.2rem",
     marginRight: "0.3rem",
+    ["@media (max-width:644px)"]: {
+      // eslint-disable-line no-useless-computed-key
+      height: "18px",
+      width: "18px",
+    },
+  },
+  icon: {
+    ["@media (max-width:644px)"]: {
+      // eslint-disable-line no-useless-computed-key
+      fontSize: "0.7rem",
+    },
   },
   divider: {
     width: "97%",

@@ -65,7 +65,7 @@ const Filter = () => {
     }
   };
 
-  // filter color
+  // filter color query funkar ej när jag passar in el
   // free shipping price=0
 
   return (

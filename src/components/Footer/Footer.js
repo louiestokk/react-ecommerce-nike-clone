@@ -10,6 +10,7 @@ import { TiSocialYoutubeCircular } from "react-icons/ti";
 import { BiMap } from "react-icons/bi";
 import { TiSocialInstagram } from "react-icons/ti";
 const Footer = () => {
+  // max-width 644
   const classes = useStyles();
   return (
     <section className={classes.root}>
@@ -52,16 +53,16 @@ const Footer = () => {
         </div>
         <div className={classes.icons}>
           <div className={classes.iconcont}>
-            <BsTwitter />
+            <BsTwitter className={classes.icon} />
           </div>
           <div className={classes.iconcont}>
-            <FaFacebookF />
+            <FaFacebookF className={classes.icon} />
           </div>
           <div className={classes.iconcont}>
-            <TiSocialYoutubeCircular />
+            <TiSocialYoutubeCircular className={classes.icon} />
           </div>
           <div className={classes.iconcont}>
-            <TiSocialInstagram />
+            <TiSocialInstagram className={classes.icon} />
           </div>
         </div>
       </article>
