@@ -9,17 +9,26 @@ const ProductsProvider = ({ children }) => {
   const [order, setOrder] = useState({});
   const [errormessage, setErrorMessage] = useState("");
   const [uniqcolor, setuniqcolor] = useState([]);
-
+  const [loading, setLoading] = useState(false);
   const fetchProducst = async () => {
-    const { data } = await commerce.products.list();
-    setProducts(data);
-    //
-    const color = [].concat(...data.map((el) => el.variant_groups));
-    const prov = color
-      .filter((el) => el.name === "color")
-      .map((el) => el.options);
-    const colors = Array.from(new Set([].concat(...prov).map((el) => el.name)));
-    setuniqcolor(colors);
+    try {
+      setLoading(true);
+      const { data } = await commerce.products.list();
+      setProducts(data);
+      //
+      const color = [].concat(...data.map((el) => el.variant_groups));
+      const prov = color
+        .filter((el) => el.name === "color")
+        .map((el) => el.options);
+      const colors = Array.from(
+        new Set([].concat(...prov).map((el) => el.name))
+      );
+      setuniqcolor(colors);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
+
     //
   };
 
@@ -47,6 +56,8 @@ const ProductsProvider = ({ children }) => {
         errormessage,
         setErrorMessage,
         uniqcolor,
+        fetchProducst,
+        loading,
       }}
     >
       {children}

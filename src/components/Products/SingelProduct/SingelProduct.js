@@ -18,6 +18,7 @@ import {
 } from "@material-ui/core";
 import klarna from "../../../images/klarna.jpg";
 import { Link } from "react-router-dom";
+import RelatedProducts from "../RelatedProducts/RelatedProducts";
 
 const SingelProduct = () => {
   const [freeShippHeight, setFreeShippHeight] = useState(false);
@@ -27,6 +28,7 @@ const SingelProduct = () => {
   const { products } = useProductsContext();
   const classes = useStyles();
   const { id } = useParams();
+
   const [product, setProduct] = useState(
     products.filter((el) => el.id == id)[0]
   );
@@ -38,7 +40,7 @@ const SingelProduct = () => {
   return (
     <Grid item className={classes.root}>
       {product && (
-        <main style={{ height: "1800px" }}>
+        <main style={{ height: "1550px" }}>
           <Typography
             variant="h5"
             style={{ marginLeft: "1rem", marginBottom: "0.6rem" }}
@@ -212,7 +214,9 @@ const SingelProduct = () => {
               {/*  */}
               <div
                 className="item-details"
-                style={{ height: reviewHeight ? "6rem" : "3rem" }}
+                style={{
+                  height: reviewHeight ? "6rem" : "3rem",
+                }}
               >
                 <div className="item-det-con">
                   <h4 style={{ marginLeft: "0.5rem", fontSize: "1.3rem" }}>
@@ -249,7 +253,11 @@ const SingelProduct = () => {
                   }}
                 >
                   <div
-                    style={{ transition: "all 0.3s linear", marginTop: "1rem" }}
+                    style={{
+                      transition: "all 0.3s linear",
+                      marginTop: "1rem",
+                      marginBottom: "3rem",
+                    }}
                   >
                     <h4 style={{ marginBottom: "0.3rem", fontWeight: "100" }}>
                       I like the style
@@ -285,6 +293,7 @@ const SingelProduct = () => {
           </div>
         </main>
       )}
+      <RelatedProducts product={product} />
     </Grid>
   );
 };

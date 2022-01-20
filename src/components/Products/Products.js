@@ -6,8 +6,11 @@ import Filter from "../Filter/Filter";
 import { Grid } from "@material-ui/core";
 import Product from "./Product/Product";
 import { useProductsContext } from "../../context/products_context";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { Oval } from "react-loader-spinner";
 const Products = () => {
-  const { products, categories, setProducts } = useProductsContext();
+  const { products, categories, loading } = useProductsContext();
+
   const classes = useStyles();
   return (
     <>
@@ -41,7 +44,9 @@ const Products = () => {
       <div className={classes.root}>
         <Filter />
         <div className={classes.container}>
-          <div />
+          {loading && (
+            <Oval heigth="150" width="150" color="black" ariaLabel="loading" />
+          )}
           <Grid container className={classes.products}>
             {products.map((product, ind) => {
               return (

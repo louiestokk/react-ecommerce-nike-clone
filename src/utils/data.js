@@ -48,7 +48,7 @@ export const footerlinkscol1 = [
     url: "/jornal",
   },
   {
-    id: 1,
+    id: 7,
     label: "send us feedback",
     url: "/sendfeedback",
   },

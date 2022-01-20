@@ -6,10 +6,15 @@ export default makeStyles(() => ({
     margin: "1rem 0.75rem",
   },
   media: {
-    height: "340px",
-    width: "280px",
+    height: "120px",
+    width: "120px",
     objectFit: "cover",
     marginRight: "0.5rem",
+    ["@media (min-width:663px)"]: {
+      // eslint-disable-line no-useless-computed-key
+      width: "280px",
+      height: "340px",
+    },
   },
   name: {
     color: "black",
@@ -18,3 +23,5 @@ export default makeStyles(() => ({
   },
   cardcontent: {},
 }));
+// height 340px
+// width 280px

@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core";
 
 export default makeStyles(() => ({
   root: {
-    height: "22rem",
+    height: "100%",
     background: "black",
     color: "white",
     marginBottom: "2rem",

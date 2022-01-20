@@ -2,12 +2,12 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles(() => ({
   root: {
-    width: "100%",
+    maxWidth: "100%",
     display: "flex",
   },
   container: {
     marginLeft: "5rem",
-    width: "100%",
+    maxWidth: "100%",
   },
   filterbtn: {
     width: "7rem",
@@ -29,5 +29,8 @@ export default makeStyles(() => ({
   },
   category: {
     marginRight: "2rem",
+  },
+  product: {
+    margin: "0 0",
   },
 }));

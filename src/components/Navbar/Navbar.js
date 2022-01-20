@@ -15,12 +15,14 @@ import { BsPatchQuestion } from "react-icons/bs";
 import { useUserContext } from "../../context/user_context";
 import LogoutAccount from "./LogoutAccount";
 import { BsHeart } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+
 const Navbar = () => {
   const [showHelpLinks, setShowHelpLinks] = useState(false);
   const [showNavMenu, setShowNavMenu] = useState(false);
   const { logout, user, loginWithRedirect } = useUserContext();
   let navigate = useNavigate();
+  const location = useLocation();
   return (
     <nav>
       <div className="top-nav-menu">
@@ -85,6 +87,7 @@ const Navbar = () => {
           </div>
           <FiSearch className="nav-icon out-search-icon" />
           <BsHeart className="nav-icon heart-icon" />
+          {/* {!location.pathname === "/" && <BsBag className="nav-icon" />} */}
           <BsBag className="nav-icon" />
           <AiOutlineBars
             className="nav-icon navbar-icon"

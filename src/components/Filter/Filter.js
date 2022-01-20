@@ -6,7 +6,8 @@ import { useProductsContext } from "../../context/products_context";
 import { commerce } from "../lib/commerce";
 
 const Filter = () => {
-  const { categories, uniqcolor, products, setProducts } = useProductsContext();
+  const { categories, uniqcolor, products, setProducts, fetchProducst } =
+    useProductsContext();
   const {
     checked25,
     checked50,
@@ -27,6 +28,19 @@ const Filter = () => {
       fetchProductsCategory(e.currentTarget.textContent);
     });
   });
+  document.querySelectorAll(".price-cont").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      if (e.currentTarget.children[0].value === ">150") {
+        const newitems = products.filter((el) => el.price.raw > 150);
+        setProducts(newitems);
+      }
+      const newitems = products.filter(
+        (el) => el.price.raw <= e.currentTarget.children[0].value
+      );
+      if (newitems.length === 0) return;
+      setProducts(newitems);
+    });
+  });
   //
 
   const fetchProductsCategory = async (param) => {
@@ -37,6 +51,22 @@ const Filter = () => {
       .then((response) => response.data);
     setProducts(resp);
   };
+
+  const handleColor = async (el) => {
+    console.log(el);
+    try {
+      const { data } = await commerce.products.list({
+        query: "black",
+      });
+
+      console.log(data);
+    } catch (error) {
+      console.log(error.data.error.message);
+    }
+  };
+
+  // filter color
+  // free shipping price=0
 
   return (
     <section className="filter-container">
@@ -119,6 +149,7 @@ const Filter = () => {
                   border: `${el === "white" && "1px solid gray"}`,
                   marginTop: "0.5rem",
                 }}
+                onClick={() => handleColor(el)}
               ></div>
               <p style={{ fontSize: "0.8rem" }}>{el}</p>
             </div>
@@ -151,7 +182,11 @@ const Filter = () => {
             Free shipping
           </label>
         </div>
-        <button type="button" className={classes.button}>
+        <button
+          type="button"
+          className={classes.button}
+          onClick={() => fetchProducst()}
+        >
           Clear filter
         </button>
       </div>
@@ -161,4 +196,4 @@ const Filter = () => {
 
 export default Filter;
 
-// free deliver shipping fee price === 0
+// gör klart allt i products och filter funktioner och design på mindre oh större skärm sen fixa designen på Singelproducts vid mindre oxh större skärm

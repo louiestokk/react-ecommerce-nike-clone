@@ -3,14 +3,19 @@ import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
 import HomeTextSlider from "../components/HomeTextSlider";
 import { useProductsContext } from "../context/products_context";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { Oval } from "react-loader-spinner";
 const Home = () => {
-  const { products } = useProductsContext();
+  const { products, loading } = useProductsContext();
   return (
     <>
       <HomeTextSlider />
       <Hero />
       <h2 className="best-airmax-text">The Best of Air Max</h2>
       <div className="airmax-container">
+        {loading && (
+          <Oval heigth="150" width="150" color="black" ariaLabel="loading" />
+        )}
         {products.map((product) => {
           return (
             <div
@@ -41,3 +46,4 @@ const Home = () => {
 };
 
 export default Home;
+// bygg på med dynamiska banners / sections och hämta data från utils, så du kan endast byta bild,tex  etx i data
