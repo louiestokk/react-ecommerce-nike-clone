@@ -9,6 +9,11 @@ export default makeStyles(() => ({
   media: {
     width: "100%",
     height: "500px",
+    ["@media (min-width:900px)"]: {
+      // eslint-disable-line no-useless-computed-key
+      width: "600px",
+      marginRight: "3rem",
+    },
   },
   mediaCont: {
     display: "flex",
@@ -28,5 +33,16 @@ export default makeStyles(() => ({
   },
   sizeCont: {
     marginTop: "3rem",
+    ["@media (min-width:900px)"]: {
+      // eslint-disable-line no-useless-computed-key
+    },
+  },
+  subroot: {
+    height: "1700px",
+    ["@media (min-width:900px)"]: {
+      // eslint-disable-line no-useless-computed-key
+      display: "flex",
+      height: "900px",
+    },
   },
 }));

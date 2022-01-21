@@ -16,13 +16,16 @@ import { useUserContext } from "../../context/user_context";
 import LogoutAccount from "./LogoutAccount";
 import { BsHeart } from "react-icons/bs";
 import { useNavigate, useLocation } from "react-router-dom";
+import { Badge, IconButton } from "@material-ui/core";
+import { ShoppingCart } from "@material-ui/icons";
 
-const Navbar = () => {
+const Navbar = ({ cart }) => {
   const [showHelpLinks, setShowHelpLinks] = useState(false);
   const [showNavMenu, setShowNavMenu] = useState(false);
   const { logout, user, loginWithRedirect } = useUserContext();
-  let navigate = useNavigate();
   const location = useLocation();
+  let navigate = useNavigate();
+
   return (
     <nav>
       <div className="top-nav-menu">
@@ -87,8 +90,21 @@ const Navbar = () => {
           </div>
           <FiSearch className="nav-icon out-search-icon" />
           <BsHeart className="nav-icon heart-icon" />
-          {/* {!location.pathname === "/" && <BsBag className="nav-icon" />} */}
-          <BsBag className="nav-icon" />
+          {location.pathname !== "/cart" && (
+            <IconButton
+              aria-label="Show cart items"
+              color="inherit"
+              component={Link}
+              to="/cart"
+            >
+              <Badge badgeContent={cart.total_items} color="secondary">
+                <ShoppingCart className="nav-icon" />
+              </Badge>
+            </IconButton>
+          )}
+
+          {/* <BsBag className="nav-icon" /> */}
+
           <AiOutlineBars
             className="nav-icon navbar-icon"
             onClick={() => setShowNavMenu(!showNavMenu)}

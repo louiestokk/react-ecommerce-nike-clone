@@ -57,11 +57,12 @@ nav {
   display: none;
 }
 .nav-icon {
-  margin-right: 1rem;
+  margin-right: 0.7rem;
   font-size: 1.45rem;
   font-weight: 100;
   color: var(--mainTextColor);
   cursor: pointer;
+  color: gray;
 }
 
 .nav-search {
@@ -462,7 +463,13 @@ nav {
   border-bottom: 1px solid black;
   cursor: pointer;
 }
+.add-to-cart-btn:hover {
+  opacity: 0.6;
+}
 /* End of SingelProduct.js */
+/* Cart.js */
+
+/* endofCart.js */
 @media screen and (max-width: 900px) {
   .top-nav-menu {
     display: none;

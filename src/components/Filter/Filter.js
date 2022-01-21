@@ -53,19 +53,17 @@ const Filter = () => {
   };
 
   const handleColor = async (el) => {
-    console.log(el);
     try {
       const { data } = await commerce.products.list({
-        query: "black",
+        query: el,
       });
 
-      console.log(data);
+      setProducts(data);
     } catch (error) {
       console.log(error.data.error.message);
     }
   };
 
-  // filter color query funkar ej när jag passar in el
   // free shipping price=0
 
   return (
@@ -164,7 +162,7 @@ const Filter = () => {
           flexDirection: "column",
         }}
       >
-        <div
+        {/* <div
           style={{
             display: "flex",
             alignItems: "center",
@@ -181,7 +179,7 @@ const Filter = () => {
           >
             Free shipping
           </label>
-        </div>
+        </div> */}
         <button
           type="button"
           className={classes.button}

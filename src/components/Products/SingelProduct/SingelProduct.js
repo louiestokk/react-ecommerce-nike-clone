@@ -1,26 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { BsAlarmFill, BsHeart } from "react-icons/bs";
+import { BsHeart } from "react-icons/bs";
 import { BsStarFill } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
 import { BsStar } from "react-icons/bs";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { useProductsContext } from "../../../context/products_context";
 import useStyles from "./styles";
-import {
-  Card,
-  CardMedia,
-  CardContent,
-  CardActions,
-  Typography,
-  IconButton,
-  Grid,
-} from "@material-ui/core";
+import { CardMedia, Typography, Grid } from "@material-ui/core";
 import klarna from "../../../images/klarna.jpg";
 import { Link } from "react-router-dom";
 import RelatedProducts from "../RelatedProducts/RelatedProducts";
 
-const SingelProduct = () => {
+const SingelProduct = ({ handleAddToCart }) => {
   const [freeShippHeight, setFreeShippHeight] = useState(false);
   const [reviewHeight, setReviewheight] = useState(false);
   const [reviews, setReviews] = useState(120);
@@ -28,9 +20,8 @@ const SingelProduct = () => {
   const { products } = useProductsContext();
   const classes = useStyles();
   const { id } = useParams();
-
   const [product, setProduct] = useState(
-    products.filter((el) => el.id == id)[0]
+    products.filter((el) => el.id === id)[0]
   );
 
   const handleActive = (e, index) => {
@@ -40,46 +31,52 @@ const SingelProduct = () => {
   return (
     <Grid item className={classes.root}>
       {product && (
-        <main style={{ height: "1550px" }}>
-          <Typography
-            variant="h5"
-            style={{ marginLeft: "1rem", marginBottom: "0.6rem" }}
-          >
-            {product.name}
-          </Typography>
-          <Typography
-            variant="h6"
-            style={{
-              marginLeft: "1rem",
-              marginBottom: "1rem",
-              fontSize: "1rem",
-            }}
-          >
-            {product.price.formatted_with_symbol}
-          </Typography>
-          <CardMedia
-            className={classes.media}
-            title={product.name}
-            image={product.assets[index].url}
-          />
-          <div className={classes.mediaCont}>
-            {product.assets.map((el, ind) => {
-              return (
-                <div key={el.id}>
-                  <div
-                    key={ind}
-                    style={{
-                      opacity: index === ind && "0.6",
-                    }}
-                    className={classes.images}
-                    onClick={(e) => handleActive(e, ind)}
-                  >
-                    <img src={el.url} className={classes.image} />
+        <main className={classes.subroot}>
+          <div className={classes.subimagecont}>
+            <div>
+              <Typography
+                variant="h5"
+                style={{ marginLeft: "1rem", marginBottom: "0.6rem" }}
+              >
+                {product.name}
+              </Typography>
+              <Typography
+                variant="h6"
+                style={{
+                  marginLeft: "1rem",
+                  marginBottom: "1rem",
+                  fontSize: "1rem",
+                }}
+              >
+                {product.price.formatted_with_symbol}
+              </Typography>
+            </div>
+
+            <CardMedia
+              className={classes.media}
+              title={product.name}
+              image={product.assets[index].url}
+            />
+            <div className={classes.mediaCont}>
+              {product.assets.map((el, ind) => {
+                return (
+                  <div key={el.id}>
+                    <div
+                      key={ind}
+                      style={{
+                        opacity: index === ind && "0.6",
+                      }}
+                      className={classes.images}
+                      onClick={(e) => handleActive(e, ind)}
+                    >
+                      <img src={el.url} className={classes.image} />
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
+
           <div className={classes.sizeCont}>
             <h4
               style={{
@@ -132,6 +129,7 @@ const SingelProduct = () => {
               </div>
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <button
+                  className="add-to-cart-btn"
                   type="button"
                   style={{
                     background: "black",
@@ -139,6 +137,7 @@ const SingelProduct = () => {
                     border: "none",
                     margin: "0.3rem auto",
                   }}
+                  onClick={() => handleAddToCart(product.id, 1)}
                 >
                   Add to Bag
                 </button>
@@ -151,7 +150,7 @@ const SingelProduct = () => {
                     margin: "0.3rem auto",
                   }}
                 >
-                  Favorite{" "}
+                  Favorite
                   <BsHeart
                     style={{
                       marginLeft: "0.3rem",
@@ -293,6 +292,7 @@ const SingelProduct = () => {
           </div>
         </main>
       )}
+
       <RelatedProducts product={product} />
     </Grid>
   );
@@ -300,10 +300,6 @@ const SingelProduct = () => {
 
 export default SingelProduct;
 
-// 2 col layout 1. product bilderna och info 2. storlek,klarna text,2 knappar add o favorite, sen product description
-// jag kan ta products från context och baar köra filter
-// välj storlek måste lägga in size 36,36,38 på utvald product samma som den med många bilder
-// render knappar med storlekar
 // lägg till korg knapp som måste regist vilken product genom id och storlek
 // knapp till add favorite men måste va inloggad, samma där spara favorite o localstorage eller kolla commrce om de har stöd
-// lagra det man lagt till i korgen , men dettta gör commerce 436571-9858-26
+// lagra det man lagt till i korgen , men dettta gör commercejs
