@@ -7,7 +7,7 @@ const RelatedProducts = ({ product }) => {
 
   return (
     <>
-      {product.related_products.length > 0 && (
+      {product && product.related_products.length > 0 && (
         <h4
           style={{
             marginLeft: "1rem",

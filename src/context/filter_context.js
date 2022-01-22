@@ -8,7 +8,7 @@ const FilterProvider = ({ children }) => {
   const [checked100, setChecked100] = useState(false);
   const [checked150, setChecked150] = useState(false);
   const [checkedover150, setCheckedOver150] = useState(false);
-
+  const [showFilter, setShowFilter] = useState(true);
   return (
     <FilterContext.Provider
       value={{
@@ -23,6 +23,8 @@ const FilterProvider = ({ children }) => {
         setChecked150,
         setCheckedOver150,
         setChecked25,
+        showFilter,
+        setShowFilter,
       }}
     >
       {children}

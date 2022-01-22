@@ -66,7 +66,7 @@ const App = () => {
           path="/account/:user"
           element={
             <PrivatRoute>
-              <Account />
+              <Account cart={cart} />
             </PrivatRoute>
           }
         ></Route>

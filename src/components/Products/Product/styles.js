@@ -20,6 +20,11 @@ export default makeStyles(() => ({
     color: "black",
     fontSize: "0.85rem",
     fontWeight: "100",
+    ["@media (max-width:663px)"]: {
+      // eslint-disable-line no-useless-computed-key
+      fontSize: "0.7rem",
+      maxWidth: "100px",
+    },
   },
   cardcontent: {},
 }));

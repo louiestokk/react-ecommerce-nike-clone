@@ -65,6 +65,7 @@ const LogoutAccount = ({ logout, user }) => {
 };
 const Wrapper = styled.section`
   position: relative;
+
   div {
     display: flex;
     // flex-direction: column;

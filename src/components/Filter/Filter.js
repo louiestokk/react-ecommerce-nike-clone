@@ -19,6 +19,8 @@ const Filter = () => {
     setChecked100,
     setChecked150,
     setCheckedOver150,
+    showFilter,
+    setShowFilter,
   } = useFilterContext();
   const classes = useStyles();
 
@@ -67,7 +69,11 @@ const Filter = () => {
   // free shipping price=0
 
   return (
-    <section className="filter-container">
+    <section
+      className={
+        showFilter ? "filter-container show-filter" : "filter-container"
+      }
+    >
       <div className="filter-by-category">
         <h4>Shop by Category</h4>
         <div className="filter-category">
