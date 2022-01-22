@@ -15,7 +15,7 @@ import SingelProduct from "./components/Products/SingelProduct/SingelProduct";
 import Products from "./components/Products/Products";
 import Footer from "./components/Footer/Footer";
 import Cart from "./components/Cart/Cart";
-import Checkout from "./components/CheckoutForm/Checkout/Checkout";
+import CheckoutPage from "./pages/CheckoutPage";
 const App = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
@@ -83,17 +83,7 @@ const App = () => {
             />
           }
         ></Route>
-        <Route
-          path="/checkout"
-          element={
-            <Checkout
-              cart={cart}
-              captureCheckout={captureCheckout}
-              order={order}
-              errorMessage={errorMessage}
-            />
-          }
-        />
+        <Route path="/checkout" element={<CheckoutPage cart={cart} />} />
       </Routes>
       <Footer />
     </Router>

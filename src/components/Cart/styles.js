@@ -28,4 +28,10 @@ export default makeStyles((theme) => ({
     width: "100%",
     justifyContent: "space-between",
   },
+  loginButton: {
+    width: "10rem",
+    height: "2.4rem",
+    background: "black",
+    color: "white",
+  },
 }));
