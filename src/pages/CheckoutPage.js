@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import StripeCheckout from "../components/Stripe/StripeCheckout";
 import { commerce } from "../components/lib/commerce";
-import { Link, useNavigate } from "react-router-dom";
-import { formatPrice } from "../utils/helpers";
+import { Link } from "react-router-dom";
+
 const CheckoutPage = ({ cart }) => {
   const [checkoutToken, setCheckoutToken] = useState(null);
-  const navigate = useNavigate();
+
   useEffect(() => {
     const generateToken = async () => {
       try {
@@ -23,7 +23,7 @@ const CheckoutPage = ({ cart }) => {
   }, [cart]);
 
   return (
-    <main>
+    <main style={{ height: "800px" }}>
       <Wrapper className="page">
         {cart.total_itemms < 1 ? (
           <div className="empty">

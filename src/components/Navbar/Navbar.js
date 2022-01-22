@@ -15,7 +15,7 @@ import { BsPatchQuestion } from "react-icons/bs";
 import { useUserContext } from "../../context/user_context";
 import LogoutAccount from "./LogoutAccount";
 import { BsHeart } from "react-icons/bs";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 import { Badge, IconButton } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
 
@@ -24,7 +24,7 @@ const Navbar = ({ cart }) => {
   const [showNavMenu, setShowNavMenu] = useState(false);
   const { logout, user, loginWithRedirect } = useUserContext();
   const location = useLocation();
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <nav>
@@ -166,17 +166,33 @@ const Navbar = ({ cart }) => {
             justifyContent: "space-evenly",
           }}
         >
-          <Link to="/joinus" className="nav-menu-btn join-us">
-            Join Us
-          </Link>
-          <button
-            to="/Sign In"
-            className="nav-menu-btn sign-in"
-            style={{ fontSize: "1.1rem" }}
-            onClick={loginWithRedirect}
-          >
-            Sign In
-          </button>
+          {!user && (
+            <Link to="/joinus" className="nav-menu-btn join-us">
+              Join Us
+            </Link>
+          )}
+
+          {!user && (
+            <button
+              className="nav-menu-btn sign-in"
+              style={{ fontSize: "1.1rem" }}
+              onClick={loginWithRedirect}
+            >
+              Sign In
+            </button>
+          )}
+          {user && (
+            <button
+              className="nav-menu-btn sign-in"
+              style={{ fontSize: "1.1rem" }}
+              onClick={() => {
+                navigate(`/account/${user.email}`);
+                setShowNavMenu(false);
+              }}
+            >
+              Account
+            </button>
+          )}
         </div>
         <div style={{ marginTop: "3rem" }}>
           <Link to="/cart" className="nav-menu-footer-link">

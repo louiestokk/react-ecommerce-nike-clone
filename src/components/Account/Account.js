@@ -5,3 +5,8 @@ const Account = () => {
 };
 
 export default Account;
+// privat route
+// dsiplay account details
+// display cart items and link to the item
+// display saved items and link to the item
+// display purchhases

@@ -8,6 +8,7 @@ import Product from "./Product/Product";
 import { useProductsContext } from "../../context/products_context";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { Oval } from "react-loader-spinner";
+import { Link } from "react-router-dom";
 const Products = () => {
   const { products, categories, loading } = useProductsContext();
 
@@ -20,9 +21,13 @@ const Products = () => {
         <div className="products-top-div">
           {categories.map((el, ind) => {
             return (
-              <h2 key={ind} className={classes.category}>
+              <Link
+                to={`/${el.toLowerCase()}`}
+                key={ind}
+                className={classes.category}
+              >
                 {el}
-              </h2>
+              </Link>
             );
           })}
         </div>

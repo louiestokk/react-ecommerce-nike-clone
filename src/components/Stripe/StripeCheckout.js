@@ -14,6 +14,7 @@ const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 const CheckoutForm = (cart) => {
   const totalamount = cart.cart.subtotal.raw + 10;
+
   const navigate = useNavigate();
   const { user } = useUserContext();
 
@@ -48,6 +49,7 @@ const CheckoutForm = (cart) => {
         "/.netlify/functions/create_payment_intent",
         JSON.stringify({ totalamount })
       );
+      console.log(data);
       setClientSecret(data.clientSecret);
     } catch (error) {
       console.log(error.response);
@@ -127,7 +129,10 @@ const CheckoutForm = (cart) => {
         )}
         <p className={succeeded ? "result-message" : "result-message hidden"}>
           Payment succeeded, see the result in your.
-          <a href={`https://dashboard.stripe.com/test/payments`}>
+          <a
+            href={`https://dashboard.stripe.com/test/payments`}
+            style={{ margin: "0 0.2rem" }}
+          >
             Stripe dashboard
           </a>
           Refresh the page to pay again

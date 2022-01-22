@@ -42,7 +42,7 @@ export default makeStyles(() => ({
     ["@media (min-width:900px)"]: {
       // eslint-disable-line no-useless-computed-key
       display: "flex",
-      height: "900px",
+      height: "950px",
     },
   },
 }));

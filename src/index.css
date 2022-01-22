@@ -158,6 +158,10 @@ nav {
   border: 1px solid gray;
   margin-left: 0.25rem;
 }
+.sign-in:hover {
+  background: black;
+  color: white;
+}
 .nav-menu-footer-link {
   display: flex;
   font-size: 1.3rem;

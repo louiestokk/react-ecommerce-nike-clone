@@ -4,7 +4,9 @@ const stripe = require("stripe")(process.env.REACT_APP_STRIPE_SECRET_KEY);
 exports.handler = async function (event) {
   if (event.body) {
     const { totalamount } = JSON.parse(event.body);
-
+    calculateOrderAmount = () => {
+      return totalamount / 100;
+    };
     try {
       const paymentIntent = await stripe.paymentIntents.create({
         amount: totalamount,

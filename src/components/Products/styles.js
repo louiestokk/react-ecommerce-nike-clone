@@ -29,6 +29,12 @@ export default makeStyles(() => ({
   },
   category: {
     marginRight: "2rem",
+    fontSize: "1.5rem",
+    color: "black",
+    "&:hover": {
+      opacity: "0.7",
+      borderBottom: "1px solid black",
+    },
   },
   product: {
     margin: "0 0",
