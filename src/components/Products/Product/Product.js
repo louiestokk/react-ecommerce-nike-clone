@@ -1,15 +1,21 @@
 import React from "react";
-import { Card, CardMedia, CardContent, Typography } from "@material-ui/core";
+import { CardContent, Typography } from "@material-ui/core";
 import useStyles from "./styles";
 import { Link } from "react-router-dom";
+import { FiSearch } from "react-icons/fi";
 const Product = ({ product }) => {
   const { id, name, price, categories, image, description } = product;
   const classes = useStyles();
   return (
     <>
-      <Card className={classes.root} component={Link} to={`/product/${id}`}>
-        <CardMedia title={name} image={image.url} className={classes.media} />
-      </Card>
+      <div className="singel-product-card">
+        <img src={image.url} className={classes.media} id="media" alt={name} />
+        <Link to={`/product/${id}`}>
+          <div className="search-icon-cart">
+            <FiSearch />
+          </div>
+        </Link>
+      </div>
       <CardContent>
         <div className={classes.cardcontent}>
           <Typography variant="h6" gutterBottom className={classes.name}>

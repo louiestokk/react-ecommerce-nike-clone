@@ -1,13 +1,9 @@
 import { makeStyles } from "@material-ui/core/styles";
 export default makeStyles(() => ({
-  root: {
-    maxWidth: "100%",
-    height: "340px",
-    margin: "1rem 0.75rem",
-  },
   media: {
-    height: "120px",
     width: "120px",
+    height: "120px",
+    display: "block",
     objectFit: "cover",
     marginRight: "0.5rem",
     ["@media (min-width:663px)"]: {

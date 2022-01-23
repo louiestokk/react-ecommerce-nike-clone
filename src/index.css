@@ -257,11 +257,14 @@ nav {
   font-family: "Dongle", sans-serif;
 }
 .airmax {
-  margin-right: 0.3rem;
+  margin-right: 0.5rem;
 }
 .airmax img {
   width: 300px;
   height: 300px;
+  object-fit: cover;
+  border-radius: 5px 5px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 .airmax h5 {
   margin-top: 0.5rem;
@@ -474,22 +477,77 @@ nav {
 .add-to-cart-btn:hover {
   opacity: 0.6;
 }
+.singel-product-card {
+  margin: 1rem 0.75rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  background: black;
+  width: 280px;
+
+  position: relative;
+}
+
+.singel-product-card:hover #media {
+  opacity: 0.5;
+}
+.search-icon-cart {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  font-size: 2rem;
+  color: black;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.8rem;
+  width: 2.8rem;
+  border-radius: 50%;
+  opacity: 0;
+  cursor: pointer;
+}
+.singel-product-card:hover .search-icon-cart {
+  opacity: 1;
+}
 /* End of SingelProduct.js */
 /* Account.js */
-.account-cart-img::before {
-  content: "";
-  display: block;
-  position: absolute;
-  height: 0%;
-  width: 100%;
-  bottom: 0;
-  transition: height 0.5s ease-out;
-  background: linear-gradient(to bottom, transparent 0%, black 100%);
-}
-.account-cart-img:hover::before {
-  height: 100%;
-}
+
 /* endof Account.js */
+/* Home */
+
+.home-fleece {
+  position: relative;
+}
+.fleece {
+  position: absolute;
+  bottom: 15%;
+  left: 8%;
+}
+.fleece h2 {
+  color: white;
+  font-family: "Anton", sans-serif;
+  letter-spacing: 1px;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  max-width: 200px;
+}
+.fleece a {
+  color: white;
+  background: white;
+  color: black;
+  padding: 1rem;
+  border-radius: 25px 25px;
+  margin-top: 0.5rem;
+}
+.fleece a:hover {
+  background: black;
+  color: white;
+}
+.home-fleece img {
+  max-height: 600px;
+  width: 100%;
+  height: auto;
+}
+/* End of Home */
 @media screen and (max-width: 900px) {
   .top-nav-menu {
     display: none;
@@ -559,5 +617,11 @@ nav {
     margin-left: 3rem;
     margin-bottom: 1rem;
     font-size: 1.6rem;
+  }
+}
+@media screen and (max-width: 663px) {
+  .singel-product-card {
+    height: 120px;
+    width: 120px;
   }
 }

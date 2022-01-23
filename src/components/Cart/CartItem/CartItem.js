@@ -18,10 +18,8 @@ const CartItem = ({ item, removeFromCart, updateCartQty }) => {
         className={classes.media}
       />
       <CardContent className={classes.cardContent}>
-        <Typography variant="h6">{item.name}</Typography>
-        <Typography variant="h6">
-          {item.line_total.formatted_with_symbol}
-        </Typography>
+        <h4>{item.name}</h4>
+        <h5>{item.line_total.formatted_with_symbol}</h5>
       </CardContent>
       <CardActions className={classes.cardActions}>
         <div className={classes.buttons}>

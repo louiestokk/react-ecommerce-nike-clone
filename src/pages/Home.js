@@ -5,6 +5,8 @@ import HomeTextSlider from "../components/HomeTextSlider";
 import { useProductsContext } from "../context/products_context";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { Oval } from "react-loader-spinner";
+import banner from "../images/nikekk.jpg";
+import banner1 from "../images/yes.webp";
 const Home = () => {
   const { products, loading } = useProductsContext();
   return (
@@ -41,6 +43,25 @@ const Home = () => {
           );
         })}
       </div>
+      <section
+        style={{
+          display: "flex",
+          margin: "5rem auto",
+          justifyContent: "center",
+          width: "100%",
+        }}
+      >
+        <div className="home-fleece">
+          <img src={banner1} />
+        </div>
+        <div className="home-fleece">
+          <img src={banner} alt="nike sports" style={{ opacity: "0.85" }} />
+          <div className="fleece">
+            <h2>Find Your Athlete Shoes</h2>
+            <Link to="/products">Shop</Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 };
