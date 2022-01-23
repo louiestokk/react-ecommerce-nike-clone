@@ -33,7 +33,7 @@ const Home = () => {
               <img src={product.image.url} alt={product.name} />
               <h5>{product.name}</h5>
               <Link
-                to="/products/sneakers/airmax"
+                to={`/product/${product.id}`}
                 style={{
                   color: "black",
                   borderBottom: "1px solid black",

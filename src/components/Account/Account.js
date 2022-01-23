@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Account = ({ cart }) => {
+  const [saved, setSaved] = useState(false);
   useEffect(() => {
     document.querySelectorAll(".img-cont").forEach((el) => {
       el.addEventListener("mouseover", (e) => {
@@ -33,8 +34,7 @@ const Account = ({ cart }) => {
           );
         })}
       </div>
-      <div>saved items</div>
-      <div>purcahes</div>
+      <div style={{ marginTop: "2rem" }}>more content goes here</div>
     </Wrapper>
   );
 };
@@ -43,6 +43,7 @@ export default Account;
 
 const Wrapper = styled.section`
   margin-top: 2rem;
+  height: 900px;
   h4 {
     margin-left: 0.5rem;
     margin-bottom: 1rem;
