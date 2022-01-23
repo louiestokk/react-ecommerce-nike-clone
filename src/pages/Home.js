@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Hero from "../components/Hero";
 import HomeTextSlider from "../components/HomeTextSlider";
 import { useProductsContext } from "../context/products_context";
@@ -7,7 +7,10 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { Oval } from "react-loader-spinner";
 import banner from "../images/nikekk.jpg";
 import banner1 from "../images/yes.webp";
+import trend from "../images/trend1.webp";
+import trend2 from "../images/trend2.webp";
 const Home = () => {
+  const navigate = useNavigate();
   const { products, loading } = useProductsContext();
   return (
     <>
@@ -50,6 +53,7 @@ const Home = () => {
           justifyContent: "center",
           width: "100%",
         }}
+        className="athlete-cont"
       >
         <div className="home-fleece">
           <img src={banner1} />
@@ -59,6 +63,30 @@ const Home = () => {
           <div className="fleece">
             <h2>Find Your Athlete Shoes</h2>
             <Link to="/products">Shop</Link>
+          </div>
+        </div>
+      </section>
+      <h2 className="best-airmax-text">Trending Styles</h2>
+      <section className="trending-cont">
+        <div
+          className="trending"
+          style={{ marginRight: "1rem", marginLeft: "0.5rem" }}
+        >
+          <img src={trend} alt="nike trending" />
+          <div className="trend-content">
+            <h4>Valentine's Day Gifts That'll Get Hearts racing</h4>
+            <button type="button" onClick={() => navigate("/products")}>
+              Shop
+            </button>
+          </div>
+        </div>
+        <div className="trending" style={{ marginRight: "0.5rem" }}>
+          <img src={trend2} alt="nike trend" />
+          <div className="trend-content">
+            <h4>Shoes Always $100 % Under</h4>
+            <button type="button" onClick={() => navigate("/products")}>
+              Shop
+            </button>
           </div>
         </div>
       </section>
