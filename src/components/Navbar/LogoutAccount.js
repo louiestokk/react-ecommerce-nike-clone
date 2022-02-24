@@ -53,14 +53,6 @@ const LogoutAccount = ({ logout, user }) => {
         )}
       </div>
     </Wrapper>
-    // <button
-    //   style={{ marginRight: "2rem" }}
-    //   className="nav-top-link"
-    //   type="button"
-    //   onClick={() => logout({ returnTo: window.location.origin })}
-    // >
-    //   Logout
-    // </button>
   );
 };
 const Wrapper = styled.section`

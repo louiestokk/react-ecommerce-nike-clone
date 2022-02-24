@@ -9,6 +9,7 @@ import banner from "../images/nikekk.jpg";
 import banner1 from "../images/yes.webp";
 import trend from "../images/trend1.webp";
 import trend2 from "../images/trend2.webp";
+
 const Home = () => {
   const navigate = useNavigate();
   const { products, loading } = useProductsContext();
@@ -95,4 +96,3 @@ const Home = () => {
 };
 
 export default Home;
-// bygg på med dynamiska banners / sections och hämta data från utils, så du kan endast byta bild,tex  etx i data

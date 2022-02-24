@@ -299,7 +299,3 @@ const SingelProduct = ({ handleAddToCart }) => {
 };
 
 export default SingelProduct;
-
-// lägg till korg knapp som måste regist vilken product genom id och storlek
-// knapp till add favorite men måste va inloggad, samma där spara favorite o localstorage eller kolla commrce om de har stöd
-// lagra det man lagt till i korgen , men dettta gör commercejs

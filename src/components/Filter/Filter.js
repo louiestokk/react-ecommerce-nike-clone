@@ -4,7 +4,7 @@ import useStyles from "./styles";
 import { useFilterContext } from "../../context/filter_context";
 import { useProductsContext } from "../../context/products_context";
 import { commerce } from "../lib/commerce";
-
+import styled from "styled-components";
 const Filter = () => {
   const { categories, uniqcolor, products, setProducts, fetchProducst } =
     useProductsContext();
@@ -69,7 +69,7 @@ const Filter = () => {
   // free shipping price=0
 
   return (
-    <section
+    <Section
       className={
         showFilter ? "filter-container show-filter" : "filter-container"
       }
@@ -194,10 +194,93 @@ const Filter = () => {
           Clear filter
         </button>
       </div>
-    </section>
+    </Section>
   );
 };
 
 export default Filter;
 
-// gör klart allt i products och filter funktioner och design på mindre oh större skärm sen fixa designen på Singelproducts vid mindre oxh större skärm
+const Section = styled.section`
+  .filter-container {
+    height: 1100px;
+    display: none;
+  }
+  .show-filter {
+    display: block;
+  }
+  .filter-by-category h4 {
+    font-size: 1.2rem;
+    color: var(--mainTextColor);
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+  }
+  .filter-by-category h5 {
+    font-size: 1rem;
+    color: var(--mainTextColor);
+    margin-top: 0.35rem;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+    cursor: pointer;
+  }
+  .filter-by-category h5:hover {
+    opacity: 0.7;
+  }
+  .filter-category {
+    border-top: 1px solid rgb(226, 225, 225);
+    width: 150px;
+    font-family: "Roboto", sans-serif;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: scroll;
+    margin-left: 1rem;
+  }
+
+  .gender-filter {
+    display: flex;
+    flex-direction: column;
+  }
+  .gender-filter div {
+    margin-top: 0.5rem;
+  }
+  .gender-filter label {
+    margin-left: 0.3rem;
+    font-size: 1rem;
+  }
+  .filter-price {
+    height: 240px;
+  }
+  .filter-price div {
+    margin-top: 0.5rem;
+  }
+  .filter-price label {
+    margin-left: 0.3rem;
+  }
+  .filter-color {
+    border-top: 1px solid rgb(226, 225, 225);
+    border-bottom: 1px solid rgb(226, 225, 225);
+    width: 150px;
+    font-family: "Roboto", sans-serif;
+    height: 270px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: scroll;
+    margin-top: 0.5rem;
+  }
+  .filter-color p {
+    margin-left: 0.3rem;
+    margin-top: 0.5rem;
+  }
+  .color {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 0.2rem;
+    padding: 0 0;
+  }
+`;

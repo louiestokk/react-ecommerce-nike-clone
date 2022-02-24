@@ -18,7 +18,7 @@ import { BsHeart } from "react-icons/bs";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 import { Badge, IconButton } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
-
+import styled from "styled-components";
 const Navbar = ({ cart }) => {
   const [showHelpLinks, setShowHelpLinks] = useState(false);
   const [showNavMenu, setShowNavMenu] = useState(false);
@@ -27,7 +27,7 @@ const Navbar = ({ cart }) => {
   const navigate = useNavigate();
 
   return (
-    <nav>
+    <Nav>
       <div className="top-nav-menu">
         <Link
           to="/help"
@@ -209,8 +209,183 @@ const Navbar = ({ cart }) => {
           </Link>
         </div>
       </div>
-    </nav>
+    </Nav>
   );
 };
 
 export default Navbar;
+const Nav = styled.nav`
+  nav {
+    position: relative;
+  }
+  .top-nav-menu {
+    position: relative;
+    background: var(--mainGray);
+    height: 2.4rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    color: var(--mainTextColor);
+    font-size: 0.85rem;
+    margin-right: 2rem;
+  }
+  .top-nav-menu div {
+    background: var(--mainTextColor);
+    width: 1px;
+    height: 10px;
+    margin: 0 0.5rem;
+  }
+  .nav-top-link {
+    color: var(--mainTextColor);
+  }
+
+  .hidden {
+    display: none;
+  }
+  .nav-icon {
+    margin-right: 0.7rem;
+    font-size: 1.45rem;
+    font-weight: 100;
+    color: var(--mainTextColor);
+    cursor: pointer;
+    color: gray;
+  }
+
+  .nav-search {
+    margin-right: 1rem;
+    border-radius: 25px 25px;
+    background: var(--mainGray);
+    border: none;
+    color: #a5a6a7;
+    text-align: center;
+    height: 2.6rem;
+    width: 11rem;
+    outline: none;
+  }
+  .search-icon {
+    position: absolute;
+    left: 5%;
+  }
+
+  .search-bar {
+    margin-left: 1.4rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+  }
+  .nav-link {
+    color: var(--mainTextColor);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0 0.8rem;
+  }
+  .icons-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-menu {
+    position: absolute;
+    transition: all 0.3s linear;
+    transform: translateX(-100%);
+    z-index: 99;
+    background: white;
+    width: 100%;
+    height: 1200px;
+    top: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+  }
+  .show-nav-menu {
+    transform: translateX(0);
+    transition: all 0.3s linear;
+    transform: translateX(0%);
+    z-index: 99;
+    text-align: center;
+  }
+  .nav-menu-link {
+    display: flex;
+    justify-content: center;
+    color: var(--mainTextColor);
+    margin: 0.5rem 0;
+    width: 100%;
+  }
+  .nav-menu-link:hover {
+    opacity: 0.7;
+  }
+  .nav-menu-btn {
+    width: 7rem;
+    height: 2.5rem;
+    border-radius: 15px 15px;
+    border: none;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .join-us {
+    color: white;
+    background: black;
+    margin-right: 0.25rem;
+  }
+  .sign-in {
+    color: var(--mainTextColor);
+    background: white;
+    border: 1px solid gray;
+    margin-left: 0.25rem;
+  }
+  .sign-in:hover {
+    background: black;
+    color: white;
+  }
+  .nav-menu-footer-link {
+    display: flex;
+    font-size: 1.3rem;
+    color: var(--mainTextColor);
+    margin-top: 0.7rem;
+  }
+  .nav-menu-footer-icon {
+    margin-right: 1rem;
+  }
+  @media screen and (max-width: 900px) {
+    .top-nav-menu {
+      display: none;
+    }
+    .search-bar {
+      display: none;
+    }
+    .nav-links {
+      display: none;
+    }
+    .heart-icon {
+      display: none;
+    }
+    /* .filter-container {
+    display: none;
+  } */
+  }
+
+  @media screen and (min-width: 900px) {
+    .navbar-icon {
+      display: none;
+    }
+    .out-search-icon {
+      display: none;
+    }
+    .products-top-div {
+      display: none;
+    }
+    .trending img {
+      max-height: 900px;
+    }
+  }
+`;

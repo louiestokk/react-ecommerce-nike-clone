@@ -10,12 +10,13 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { Oval } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 import { useFilterContext } from "../../context/filter_context";
+import styled from "styled-components";
 const Products = () => {
   const { products, categories, loading } = useProductsContext();
   const { showFilter, setShowFilter } = useFilterContext();
   const classes = useStyles();
   return (
-    <>
+    <Wrapper>
       <HomeTextSlider />
       <h4 className="products-top-h4">Styles for Self Love</h4>
       <section className="sss" style={{ marginBottom: "1rem" }}>
@@ -69,8 +70,40 @@ const Products = () => {
           </Grid>
         </div>
       </div>
-    </>
+    </Wrapper>
   );
 };
 
 export default Products;
+const Wrapper = styled.section`
+  .products-top {
+    font-family: "Dongle", sans-serif;
+    height: 100%;
+    width: 100%;
+    overflow-x: scroll;
+    border-bottom: 1px solid rgb(219, 217, 217);
+  }
+  .products-top-h4 {
+    font-size: 2rem;
+    margin: 1.6rem 1rem;
+    font-family: "Dongle", sans-serif;
+  }
+  .products-top-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 2.4rem;
+    font-family: "Dongle", sans-serif;
+    border-bottom: 1px solid rgb(226, 225, 225);
+    overflow-x: scroll;
+  }
+  .numItems {
+    margin-left: 1rem;
+    font-size: 1.7rem;
+    font-family: "Dongle", sans-serif;
+    font-weight: 100;
+    margin-top: 0.7rem;
+    color: rgb(167, 167, 167);
+  }
+`;

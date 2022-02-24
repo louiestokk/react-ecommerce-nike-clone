@@ -90,7 +90,3 @@ const Wrapper = styled.section`
     opacity: 1;
   }
 `;
-// dsiplay account details
-// display cart items and link to the item
-// display saved items and link to the item
-// display purchhases

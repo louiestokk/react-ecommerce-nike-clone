@@ -5,13 +5,14 @@ const UserContext = React.createContext();
 
 const UserProvider = ({ children }) => {
   const [myUser, setMyUser] = useState(null);
-  const { loginWithRedirect, logout, user } = useAuth0();
+  const { loginWithRedirect, logout, user, isAuthenticated } = useAuth0();
   return (
     <UserContext.Provider
       value={{
         user,
         loginWithRedirect,
         logout,
+        isAuthenticated,
       }}
     >
       {children}
