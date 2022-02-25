@@ -15,7 +15,7 @@ import PrivatRoute from "./pages/PrivatRoute";
 const App = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
-  const [order, setOrder] = useState({});
+  const [order, setOrder] = useState({ size: "", id: "" });
   const [errorMessage, setErrorMessage] = useState("");
   const fetchCart = async () => {
     const resp = await commerce.cart.retrieve();
@@ -24,6 +24,7 @@ const App = () => {
   const handleAddToCart = async (productId, quantity) => {
     const { cart } = await commerce.cart.add(productId, quantity);
     setCart(cart);
+    console.log(cart);
   };
   const updateCartQty = async (productId, quantity) => {
     const { cart } = await commerce.cart.update(productId, { quantity });
@@ -73,7 +74,13 @@ const App = () => {
         <Route path="/products" element={<Products />}></Route>
         <Route
           path="/product/:id"
-          element={<SingelProduct handleAddToCart={handleAddToCart} />}
+          element={
+            <SingelProduct
+              handleAddToCart={handleAddToCart}
+              setOrder={setOrder}
+              order={order}
+            />
+          }
         ></Route>
         <Route
           path="/cart"
@@ -86,7 +93,12 @@ const App = () => {
             />
           }
         ></Route>
-        <Route path="/checkout" element={<CheckoutPage cart={cart} />} />
+        <Route
+          path="/checkout"
+          element={
+            <CheckoutPage cart={cart} setOrder={setOrder} order={order} />
+          }
+        />
       </Routes>
       <Footer />
     </Router>

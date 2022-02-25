@@ -3,8 +3,8 @@ import styled from "styled-components";
 import StripeCheckout from "../components/Stripe/StripeCheckout";
 import { commerce } from "../components/lib/commerce";
 import { Link } from "react-router-dom";
-
-const CheckoutPage = ({ cart }) => {
+import { sizeandid } from "../components/Products/SingelProduct/SingelProduct";
+const CheckoutPage = ({ cart, setOrder, order }) => {
   const [checkoutToken, setCheckoutToken] = useState(null);
 
   useEffect(() => {
@@ -33,7 +33,12 @@ const CheckoutPage = ({ cart }) => {
             </Link>
           </div>
         ) : (
-          <StripeCheckout cart={cart} checkoutToken={checkoutToken} />
+          <StripeCheckout
+            cart={cart}
+            checkoutToken={checkoutToken}
+            order={order}
+            setOrder={setOrder}
+          />
         )}
       </Wrapper>
     </main>

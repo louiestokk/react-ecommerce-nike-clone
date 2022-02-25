@@ -74,6 +74,7 @@ export default makeStyles(() => ({
     },
   },
   icon: {
+    cursor: "pointer",
     ["@media (max-width:644px)"]: {
       // eslint-disable-line no-useless-computed-key
       fontSize: "0.7rem",

@@ -1,24 +1,26 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import Logo from "../../images/nike.jpg";
-import { BsBag } from "react-icons/bs";
-import { FiSearch } from "react-icons/fi";
-import { AiOutlineBars } from "react-icons/ai";
-import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import HelpLinks from "./HelpLinks";
 import { navlinks } from "../../utils/data";
-import { AiOutlineCloseCircle } from "react-icons/ai";
-import { SiJordan } from "react-icons/si";
-import { GiConverseShoe } from "react-icons/gi";
-import { GoPackage } from "react-icons/go";
-import { BsPatchQuestion } from "react-icons/bs";
 import { useUserContext } from "../../context/user_context";
 import LogoutAccount from "./LogoutAccount";
-import { BsHeart } from "react-icons/bs";
-import { useNavigate, useLocation, useParams } from "react-router-dom";
+
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { Badge, IconButton } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
 import styled from "styled-components";
+import {
+  BsBag,
+  FiSearch,
+  AiOutlineBars,
+  MdOutlineKeyboardArrowRight,
+  AiOutlineCloseCircle,
+  SiJordan,
+  GiConverseShoe,
+  GoPackage,
+  BsPatchQuestion,
+  BsHeart,
+} from "../../utils/icon";
 const Navbar = ({ cart }) => {
   const [showHelpLinks, setShowHelpLinks] = useState(false);
   const [showNavMenu, setShowNavMenu] = useState(false);

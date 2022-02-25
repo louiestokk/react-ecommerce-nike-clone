@@ -11,8 +11,8 @@ import { CardMedia, Typography, Grid } from "@material-ui/core";
 import klarna from "../../../images/klarna.jpg";
 import { Link } from "react-router-dom";
 import RelatedProducts from "../RelatedProducts/RelatedProducts";
-
-const SingelProduct = ({ handleAddToCart }) => {
+export const sizeandid = [];
+const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
   const [freeShippHeight, setFreeShippHeight] = useState(false);
   const [reviewHeight, setReviewheight] = useState(false);
   const [reviews, setReviews] = useState(120);
@@ -99,7 +99,12 @@ const SingelProduct = ({ handleAddToCart }) => {
                 .options.map((el) => el.name)
                 .map((btn, ind) => {
                   return (
-                    <button key={ind} type="button" className="size-btn">
+                    <button
+                      key={ind}
+                      type="button"
+                      className="size-btn"
+                      onClick={() => setOrder({ ...order, size: btn })}
+                    >
                       {btn}
                     </button>
                   );
@@ -137,7 +142,14 @@ const SingelProduct = ({ handleAddToCart }) => {
                     border: "none",
                     margin: "0.3rem auto",
                   }}
-                  onClick={() => handleAddToCart(product.id, 1)}
+                  onClick={(e) => {
+                    setOrder({ ...order, id: product.id });
+                    handleAddToCart(product.id, 1);
+                    e.target.textContent = "Added to cart";
+                    e.target.disabled = true;
+                    e.target.style.opacity = "0.5";
+                    sizeandid.push(order);
+                  }}
                 >
                   Add to Bag
                 </button>

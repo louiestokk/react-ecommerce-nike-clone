@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { FaUserCircle } from "react-icons/fa";
 const LogoutAccount = ({ logout, user }) => {
   const [showAccount, setShowAccount] = useState(false);
   return (
@@ -37,12 +38,17 @@ const LogoutAccount = ({ logout, user }) => {
                   Welcome
                 </h4>
                 <h4 style={{ fontSize: "0.95rem", opacity: "0.6" }}>
-                  {user.email}
+                  {user.name}
                 </h4>
               </main>
             </section>
 
-            <Link to={`/account/${user.name}`}>Account</Link>
+            <Link
+              to={`/account/${user.name}`}
+              onClick={() => setShowAccount(!showAccount)}
+            >
+              Account
+            </Link>
             <button
               className="nav-menu-btn sign-in"
               onClick={() => logout({ returnTo: window.location.origin })}

@@ -9,12 +9,12 @@ import banner from "../images/nikekk.jpg";
 import banner1 from "../images/yes.webp";
 import trend from "../images/trend1.webp";
 import trend2 from "../images/trend2.webp";
-
+import styled from "styled-components";
 const Home = () => {
   const navigate = useNavigate();
   const { products, loading } = useProductsContext();
   return (
-    <>
+    <Wrapper>
       <HomeTextSlider />
       <Hero />
       <h2 className="best-airmax-text">The Best of Air Max</h2>
@@ -91,8 +91,23 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </>
+    </Wrapper>
   );
 };
 
 export default Home;
+
+const Wrapper = styled.section`
+  .trending {
+    transition: all 0.3s linear;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .trending img {
+    transition: all 0.3s linear;
+  }
+  .trending:hover img {
+    transform: scale(1.1);
+    transition: all 0.3s linear;
+  }
+`;

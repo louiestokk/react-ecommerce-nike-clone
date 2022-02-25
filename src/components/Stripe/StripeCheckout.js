@@ -1,5 +1,6 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
+import emailjs from "@emailjs/browser";
 import { loadStripe } from "@stripe/stripe-js";
 import { useNavigate } from "react-router-dom";
 import {
@@ -14,7 +15,6 @@ const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 const CheckoutForm = (cart) => {
   const totalamount = cart.cart.subtotal.raw + 10;
-
   const navigate = useNavigate();
   const { user } = useUserContext();
 
@@ -52,7 +52,7 @@ const CheckoutForm = (cart) => {
       console.log(data);
       setClientSecret(data.clientSecret);
     } catch (error) {
-      console.log(error.response);
+      console.log(error);
     }
   };
   const handleChange = async (event) => {
@@ -100,18 +100,12 @@ const CheckoutForm = (cart) => {
             marginBottom: "1rem",
           }}
         >
-          <h4>Hello {user && user.nickname}</h4>
-          <div>
-            <p style={{ color: "green" }}>Price ${cart.cart.subtotal.raw}</p>
-            <p style={{ color: "green" }}>Shipping $10</p>
-            <h4 style={{ borderBottom: "1px solid black", width: "100px" }}>
-              Yor total ${totalamount}
-            </h4>
-          </div>
           <h4 style={{ marginTop: "1rem" }}>Test Card: 4242 4242 4242 4242</h4>
         </article>
       )}
       <form id="payment-form" onSubmit={handleSubmit}>
+        <p style={{ color: "green" }}>Price ${cart.cart.subtotal.raw}</p>
+        <p style={{ color: "green", marginBottom: "0.5rem" }}>Shipping $10</p>
         <CardElement
           id="card-element"
           options={cardStyle}
@@ -119,7 +113,11 @@ const CheckoutForm = (cart) => {
         />
         <button disabled={proccessing || succeeded || disabled} id="submit">
           <span id="button-text">
-            {proccessing ? <div className="spinner" id="spinner"></div> : "Pay"}
+            {proccessing ? (
+              <div className="spinner" id="spinner"></div>
+            ) : (
+              `Pay $${totalamount}`
+            )}
           </span>
         </button>
         {error && (
@@ -141,9 +139,54 @@ const CheckoutForm = (cart) => {
     </div>
   );
 };
-const StripeCheckout = ({ cart }) => {
+const StripeCheckout = ({ cart, order }) => {
+  const form = useRef();
+  const handlePaymentSubmit = (e) => {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.envREACT_APP_EMAILJS_TEMPLATE_ID,
+        form.current,
+        process.env.REACT_APP_EMAILJS_USER_ID
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
   return (
     <Wrapper>
+      <form onSubmit={handlePaymentSubmit} ref={form}>
+        <h4>Delivery address</h4>
+        <input type="text" name="Name" placeholder="Name" required />
+        <input type="text" name="Adress" placeholder="Address" required />
+        <input type="text" name="Zip" placeholder="Zip/Postal" required />
+        <input type="text" name="Area" placeholder="City" required />
+        <input type="text" name="Phone" placeholder="Phone" required />
+        <input
+          type="text"
+          name="Title"
+          style={{ display: "none" }}
+          value={cart.line_items.map((el) => el.name)}
+        />
+        <input
+          type="text"
+          name="Text"
+          style={{ display: "none" }}
+          value={cart.line_items.map((el) => el.quantity)}
+        />
+        <input
+          type="text"
+          name="About"
+          style={{ display: "none" }}
+          value={order}
+        />
+      </form>
       <Elements stripe={promise}>
         <CheckoutForm cart={cart} />
       </Elements>
