@@ -20,9 +20,9 @@ const Home = () => {
       <Hero />
       <h2 className="best-airmax-text">Best Reviews</h2>
       <div className="airmax-container">
-        {/* {loading && (
+        {loading && (
           <Oval heigth="150" width="150" color="black" ariaLabel="loading" />
-        )} */}
+        )}
         {products.map((product) => {
           return (
             <div
@@ -50,9 +50,9 @@ const Home = () => {
       </div>
       <h2 className="best-airmax-text">Best Seller</h2>
       <div className="airmax-container">
-        {/* {loading && (
+        {loading && (
           <Oval heigth="150" width="150" color="black" ariaLabel="loading" />
-        )} */}
+        )}
         {products.map((product, ind) => {
           if (ind === 0) return;
           if (ind === 1) return;

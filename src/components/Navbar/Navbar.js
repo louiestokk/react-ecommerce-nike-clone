@@ -70,6 +70,7 @@ const Navbar = ({ cart }) => {
           }}
           onClick={() => navigate("/")}
         />
+
         <div
           style={{
             margin: "0.2rem 1rem",
