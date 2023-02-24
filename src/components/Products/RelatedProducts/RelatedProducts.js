@@ -7,14 +7,14 @@ const RelatedProducts = ({ product }) => {
 
   return (
     <>
-      {product && product.related_products.length > 0 && (
+      {product && product?.related_products?.length > 0 && (
         <h4
           style={{
             marginLeft: "1rem",
             marginBottom: "1.5rem",
             fontFamily: "fantasy",
             borderBottom: "1px solid black",
-            width: "153px",
+            width: "153px"
           }}
         >
           You Might Also Like
@@ -25,14 +25,14 @@ const RelatedProducts = ({ product }) => {
         style={{ overflowX: "scroll", marginBottom: "3rem", display: "flex" }}
       >
         {product &&
-          product.related_products.map((el) => {
+          product?.related_products?.map((el) => {
             const { id, name, image, price } = el;
             return (
               <div
                 key={id}
                 style={{
                   marginLeft: "1rem",
-                  cursor: "pointer",
+                  cursor: "pointer"
                 }}
                 onClick={() => navigate("/products")}
               >
@@ -48,7 +48,7 @@ const RelatedProducts = ({ product }) => {
                     fontSize: "0.8rem",
                     marginTop: "0.5rem",
                     marginBottom: "0.5rem",
-                    opacity: "0.9",
+                    opacity: "0.9"
                   }}
                 >
                   {name}
@@ -58,7 +58,7 @@ const RelatedProducts = ({ product }) => {
                     marginLeft: "0.5rem",
                     color: "black",
                     fontSize: "0.8rem",
-                    opacity: "0.8",
+                    opacity: "0.8"
                   }}
                 >
                   {price.formatted_with_symbol}

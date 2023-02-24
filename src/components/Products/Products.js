@@ -11,6 +11,7 @@ import { Oval } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 import { useFilterContext } from "../../context/filter_context";
 import styled from "styled-components";
+import { navlinks } from "../../utils/data";
 const Products = () => {
   const { products, categories, loading } = useProductsContext();
   const { showFilter, setShowFilter } = useFilterContext();
@@ -21,14 +22,10 @@ const Products = () => {
       <h4 className="products-top-h4">Styles for Self Love</h4>
       <section className="sss" style={{ marginBottom: "1rem" }}>
         <div className="products-top-div">
-          {categories.map((el, ind) => {
+          {navlinks.map((el, ind) => {
             return (
-              <Link
-                to={`/${el.toLowerCase()}`}
-                key={ind}
-                className={classes.category}
-              >
-                {el}
+              <Link to={el.url} key={ind} className={classes.category}>
+                {el.label}
               </Link>
             );
           })}
@@ -38,7 +35,7 @@ const Products = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            marginBottom: "0.6rem",
+            marginBottom: "0.6rem"
           }}
         >
           <h5 className="numItems">{products.length} Results</h5>

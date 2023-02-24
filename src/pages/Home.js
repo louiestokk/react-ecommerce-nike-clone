@@ -7,9 +7,10 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { Oval } from "react-loader-spinner";
 import banner from "../images/nikekk.jpg";
 import banner1 from "../images/yes.webp";
-import trend from "../images/trend1.webp";
-import trend2 from "../images/trend2.webp";
+import trend from "../images/trend1.png";
+import trend2 from "../images/trend2.png";
 import styled from "styled-components";
+
 const Home = () => {
   const navigate = useNavigate();
   const { products, loading } = useProductsContext();
@@ -17,18 +18,18 @@ const Home = () => {
     <Wrapper>
       <HomeTextSlider />
       <Hero />
-      <h2 className="best-airmax-text">The Best of Air Max</h2>
+      <h2 className="best-airmax-text">Best Reviews</h2>
       <div className="airmax-container">
-        {loading && (
+        {/* {loading && (
           <Oval heigth="150" width="150" color="black" ariaLabel="loading" />
-        )}
+        )} */}
         {products.map((product) => {
           return (
             <div
               className="airmax"
               key={product.id}
               style={{
-                marginLeft: product.name === "Nike Air Vapor Max" && "1rem",
+                marginLeft: product.name === "Nike Air Vapor Max" && "1rem"
               }}
             >
               <img src={product.image.url} alt={product.name} />
@@ -38,7 +39,7 @@ const Home = () => {
                 style={{
                   color: "black",
                   borderBottom: "1px solid black",
-                  fontSize: "1.2rem",
+                  fontSize: "1.2rem"
                 }}
               >
                 Shop
@@ -47,26 +48,39 @@ const Home = () => {
           );
         })}
       </div>
-      <section
-        style={{
-          display: "flex",
-          margin: "5rem auto",
-          justifyContent: "center",
-          width: "100%",
-        }}
-        className="athlete-cont"
-      >
-        <div className="home-fleece">
-          <img src={banner1} />
-        </div>
-        <div className="home-fleece">
-          <img src={banner} alt="nike sports" style={{ opacity: "0.85" }} />
-          <div className="fleece">
-            <h2>Find Your Athlete Shoes</h2>
-            <Link to="/products">Shop</Link>
-          </div>
-        </div>
-      </section>
+      <h2 className="best-airmax-text">Best Seller</h2>
+      <div className="airmax-container">
+        {/* {loading && (
+          <Oval heigth="150" width="150" color="black" ariaLabel="loading" />
+        )} */}
+        {products.map((product, ind) => {
+          if (ind === 0) return;
+          if (ind === 1) return;
+          return (
+            <div
+              className="airmax"
+              key={product.id}
+              style={{
+                marginLeft: product.name === "Nike Air Vapor Max" && "1rem"
+              }}
+            >
+              <img src={product.image.url} alt={product.name} />
+              <h5>{product.name}</h5>
+              <Link
+                to={`/product/${product.id}`}
+                style={{
+                  color: "black",
+                  borderBottom: "1px solid black",
+                  fontSize: "1.2rem"
+                }}
+              >
+                Shop
+              </Link>
+            </div>
+          );
+        })}
+      </div>
+
       <h2 className="best-airmax-text">Trending Styles</h2>
       <section className="trending-cont">
         <div
@@ -74,8 +88,8 @@ const Home = () => {
           style={{ marginRight: "1rem", marginLeft: "0.5rem" }}
         >
           <img src={trend} alt="nike trending" />
-          <div className="trend-content">
-            <h4>Valentine's Day Gifts That'll Get Hearts racing</h4>
+          <div className="trend-content" style={{ textAlign: "center" }}>
+            <h4>City star all in one duo pram. Now 50%</h4>
             <button type="button" onClick={() => navigate("/products")}>
               Shop
             </button>
@@ -83,8 +97,8 @@ const Home = () => {
         </div>
         <div className="trending" style={{ marginRight: "0.5rem" }}>
           <img src={trend2} alt="nike trend" />
-          <div className="trend-content">
-            <h4>Shoes Always $100 % Under</h4>
+          <div className="trend-content" style={{ textAlign: "center" }}>
+            <h4>Stylish twin pram with all you need. Now 30%</h4>
             <button type="button" onClick={() => navigate("/products")}>
               Shop
             </button>

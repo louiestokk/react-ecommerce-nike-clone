@@ -27,7 +27,7 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
   const handleActive = (e, index) => {
     setIndex(index);
   };
-
+  console.log(product);
   return (
     <Grid item className={classes.root}>
       {product && (
@@ -45,26 +45,26 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
                 style={{
                   marginLeft: "1rem",
                   marginBottom: "1rem",
-                  fontSize: "1rem",
+                  fontSize: "1rem"
                 }}
               >
-                {product.price.formatted_with_symbol}
+                {product?.price?.formatted_with_symbol}
               </Typography>
             </div>
 
             <CardMedia
               className={classes.media}
-              title={product.name}
-              image={product.assets[index].url}
+              title={product?.name}
+              image={product?.image.url}
             />
             <div className={classes.mediaCont}>
-              {product.assets.map((el, ind) => {
+              {product?.assets?.map((el, ind) => {
                 return (
                   <div key={el.id}>
                     <div
                       key={ind}
                       style={{
-                        opacity: index === ind && "0.6",
+                        opacity: index === ind && "0.6"
                       }}
                       className={classes.images}
                       onClick={(e) => handleActive(e, ind)}
@@ -82,7 +82,7 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
               style={{
                 marginLeft: "1rem",
                 fontSize: "1.1rem",
-                fontWeight: "100",
+                fontWeight: "100"
               }}
             >
               Select Size
@@ -91,12 +91,12 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
               style={{
                 widrh: "100%",
                 diplay: "flex",
-                textAlign: "center",
+                textAlign: "center"
               }}
             >
-              {product.variant_groups
-                .filter((el) => el.name === "size")[0]
-                .options.map((el) => el.name)
+              {product?.variant_groups
+                ?.filter((el) => el?.name === "size")[0]
+                .options.map((el) => el?.name)
                 .map((btn, ind) => {
                   return (
                     <button
@@ -117,7 +117,7 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
                   justifyContent: "center",
                   alignItems: "center",
                   marginTop: "2.2rem",
-                  marginBottom: "0.5rem",
+                  marginBottom: "0.5rem"
                 }}
               >
                 <img src={klarna} alt="klarna" />
@@ -126,7 +126,7 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
                     marginLeft: "0.2rem",
                     fontSize: "0.8rem",
                     fontWeight: "bold",
-                    color: "black",
+                    color: "black"
                   }}
                 >
                   Smooth shopping
@@ -140,7 +140,7 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
                     background: "black",
                     color: "white",
                     border: "none",
-                    margin: "0.3rem auto",
+                    margin: "0.3rem auto"
                   }}
                   onClick={(e) => {
                     setOrder({ ...order, id: product.id });
@@ -159,7 +159,7 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
                     background: "white",
                     color: "black",
                     border: "1px solid rgb(167, 164, 164)",
-                    margin: "0.3rem auto",
+                    margin: "0.3rem auto"
                   }}
                 >
                   Favorite
@@ -167,7 +167,7 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
                     style={{
                       marginLeft: "0.3rem",
                       fontSize: "0.9rem",
-                      marginTop: "0.17rem",
+                      marginTop: "0.17rem"
                     }}
                   />
                 </button>
@@ -177,7 +177,7 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
                   marginTop: "2.4rem",
                   marginBottom: "1.4rem",
                   lineHeight: "25px",
-                  maxWidth: "650px",
+                  maxWidth: "650px"
                 }}
                 className="singel-item-decription"
               >
@@ -211,7 +211,7 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
                     display: freeShippHeight ? "block" : "none",
                     margin: "0 0.5rem",
                     lineHeight: "23px",
-                    maxWidth: "90%",
+                    maxWidth: "90%"
                   }}
                 >
                   Free standard shipping and free 60-day returns for Nike
@@ -226,7 +226,7 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
               <div
                 className="item-details"
                 style={{
-                  height: reviewHeight ? "6rem" : "3rem",
+                  height: reviewHeight ? "6rem" : "3rem"
                 }}
               >
                 <div className="item-det-con">
@@ -260,14 +260,14 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
                     display: reviewHeight ? "block" : "none",
                     margin: "0 0.5rem",
                     lineHeight: "23px",
-                    maxWidth: "90%",
+                    maxWidth: "90%"
                   }}
                 >
                   <div
                     style={{
                       transition: "all 0.3s linear",
                       marginTop: "1rem",
-                      marginBottom: "3rem",
+                      marginBottom: "3rem"
                     }}
                   >
                     <h4 style={{ marginBottom: "0.3rem", fontWeight: "100" }}>

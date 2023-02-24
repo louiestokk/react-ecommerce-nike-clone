@@ -19,7 +19,7 @@ import {
   GiConverseShoe,
   GoPackage,
   BsPatchQuestion,
-  BsHeart,
+  BsHeart
 } from "../../utils/icon";
 const Navbar = ({ cart }) => {
   const [showHelpLinks, setShowHelpLinks] = useState(false);
@@ -66,7 +66,7 @@ const Navbar = ({ cart }) => {
             width: "65px",
             height: "65px",
             margin: "0.2rem 3rem",
-            cursor: "pointer",
+            cursor: "pointer"
           }}
           onClick={() => navigate("/")}
         />
@@ -74,7 +74,7 @@ const Navbar = ({ cart }) => {
           style={{
             margin: "0.2rem 1rem",
             display: "flex",
-            alignItems: "center",
+            alignItems: "center"
           }}
         >
           <div className="nav-links">
@@ -99,7 +99,7 @@ const Navbar = ({ cart }) => {
               component={Link}
               to="/cart"
             >
-              <Badge badgeContent={cart.total_items} color="secondary">
+              <Badge badgeContent={cart && cart.total_items} color="secondary">
                 <ShoppingCart className="nav-icon" />
               </Badge>
             </IconButton>
@@ -132,7 +132,7 @@ const Navbar = ({ cart }) => {
             display: "flex",
             margin: "1.5rem 0",
             alignItems: "center",
-            color: "#111827",
+            color: "#111827"
           }}
         >
           <SiJordan style={{ marginRight: "1rem" }} />
@@ -144,7 +144,7 @@ const Navbar = ({ cart }) => {
             display: "flex",
             margin: "0rem 0",
             alignItems: "center",
-            color: "#111827",
+            color: "#111827"
           }}
         >
           <GiConverseShoe style={{ marginRight: "1rem" }} />
@@ -155,7 +155,7 @@ const Navbar = ({ cart }) => {
             maxWidth: "300px",
             fontSize: "1.2rem",
             marginTop: "4rem",
-            opacity: "0.6",
+            opacity: "0.6"
           }}
         >
           Become a Nike Member for the best products, inspiration and stories in
@@ -165,7 +165,7 @@ const Navbar = ({ cart }) => {
           style={{
             marginTop: "2rem",
             display: "flex",
-            justifyContent: "space-evenly",
+            justifyContent: "space-evenly"
           }}
         >
           {!user && (

@@ -78,7 +78,7 @@ const Cart = ({ updateCartQty, removeFromCart, handleEmptyCart, cart }) => {
       </>
     );
   };
-  if (!cart.line_items) return "Loading...";
+  if (!cart?.line_items) return "Loading...";
   return (
     <Container>
       <div className={classes.toolbar} />

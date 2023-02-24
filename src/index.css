@@ -9,6 +9,7 @@
   --mainGray: #f3f4f6;
   --mainTextColor: #111827;
 }
+
 a {
   text-decoration: none;
 }
@@ -65,7 +66,8 @@ input[type="checkbox"] {
 /* Hero */
 .hero {
   position: relative;
-  background: url("./images/nikeshoe.jpg"), no-repeat;
+  background: url("https://cdn.shopify.com/s/files/1/1298/3583/products/Blue_2309cb68-bd90-477f-a15b-f8618a900758_1080x996.jpg?v=1662465719"),
+    no-repeat;
   height: 500px;
   background-position: center;
   width: 90%;
@@ -73,6 +75,7 @@ input[type="checkbox"] {
   flex-direction: column;
   margin: 0 auto;
 }
+
 .hero-content {
   position: absolute;
   bottom: 16%;
@@ -112,6 +115,14 @@ input[type="checkbox"] {
   display: flex;
   overflow-x: scroll;
   font-family: "Dongle", sans-serif;
+  margin-bottom: 5rem;
+}
+.airmax-container::-webkit-scrollbar {
+  display: none;
+}
+.airmax-container {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 .airmax {
   margin-right: 0.5rem;
@@ -251,6 +262,8 @@ input[type="checkbox"] {
 /* Home */
 .home-fleece {
   position: relative;
+  width: 100%;
+  height: 100%;
 }
 .fleece {
   position: absolute;
@@ -278,9 +291,9 @@ input[type="checkbox"] {
   color: white;
 }
 .home-fleece img {
-  max-height: 600px;
   width: 100%;
   height: auto;
+  max-height: 600px;
 }
 .trending-cont {
   display: flex;
@@ -307,6 +320,7 @@ input[type="checkbox"] {
 }
 .trend-content h4 {
   background: white;
+  padding: 0.5rem;
 }
 .trend-content button {
   margin-top: 1rem;

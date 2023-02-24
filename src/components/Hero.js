@@ -22,7 +22,8 @@ export default Hero;
 const Wrapper = styled.div`
   .hero {
     position: relative;
-    background: url("./images/nikeshoe.jpg"), no-repeat;
+    background: url("https://cdn.shopify.com/s/files/1/1298/3583/products/Blue_2309cb68-bd90-477f-a15b-f8618a900758_1080x996.jpg?v=1662465719"),
+      no-repeat;
     height: 500px;
     background-position: center;
     width: 90%;
