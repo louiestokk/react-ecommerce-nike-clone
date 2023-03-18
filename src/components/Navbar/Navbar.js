@@ -70,7 +70,6 @@ const Navbar = ({ cart }) => {
           }}
           onClick={() => navigate("/")}
         />
-
         <div
           style={{
             margin: "0.2rem 1rem",
@@ -100,7 +99,8 @@ const Navbar = ({ cart }) => {
               component={Link}
               to="/cart"
             >
-              <Badge badgeContent={cart && cart.total_items} color="secondary">
+              {/* i badgen så uppdtaras inte när man lägger till ändra så denna kör redux toolkit */}
+              <Badge badgeContent={cart?.total_items} color="secondary">
                 <ShoppingCart className="nav-icon" />
               </Badge>
             </IconButton>

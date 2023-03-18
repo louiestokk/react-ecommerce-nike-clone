@@ -10,7 +10,8 @@ import banner1 from "../images/yes.webp";
 import trend from "../images/trend1.png";
 import trend2 from "../images/trend2.png";
 import styled from "styled-components";
-
+import PopularCategories from "../components/PopularCategories";
+import Blog from "../components/Blog";
 const Home = () => {
   const navigate = useNavigate();
   const { products, loading } = useProductsContext();
@@ -18,7 +19,8 @@ const Home = () => {
     <Wrapper>
       <HomeTextSlider />
       <Hero />
-      <h2 className="best-airmax-text">Best Reviews</h2>
+      <PopularCategories />
+      <h2 className="best-airmax-text">Bäst omdöme</h2>
       <div className="airmax-container">
         {loading && (
           <Oval heigth="150" width="150" color="black" ariaLabel="loading" />
@@ -48,7 +50,7 @@ const Home = () => {
           );
         })}
       </div>
-      <h2 className="best-airmax-text">Best Seller</h2>
+      <h2 className="best-airmax-text">Bäst Säljare</h2>
       <div className="airmax-container">
         {loading && (
           <Oval heigth="150" width="150" color="black" ariaLabel="loading" />
@@ -81,13 +83,13 @@ const Home = () => {
         })}
       </div>
 
-      <h2 className="best-airmax-text">Trending Styles</h2>
+      <h2 className="best-airmax-text">Trendigt Nu</h2>
       <section className="trending-cont">
         <div
           className="trending"
           style={{ marginRight: "1rem", marginLeft: "0.5rem" }}
         >
-          <img src={trend} alt="nike trending" />
+          <img src={trend} alt="baby stroller" />
           <div className="trend-content" style={{ textAlign: "center" }}>
             <h4>City star all in one duo pram. Now 50%</h4>
             <button type="button" onClick={() => navigate("/products")}>
@@ -96,7 +98,7 @@ const Home = () => {
           </div>
         </div>
         <div className="trending" style={{ marginRight: "0.5rem" }}>
-          <img src={trend2} alt="nike trend" />
+          <img src={trend2} alt="baby pram" />
           <div className="trend-content" style={{ textAlign: "center" }}>
             <h4>Stylish twin pram with all you need. Now 30%</h4>
             <button type="button" onClick={() => navigate("/products")}>
@@ -105,6 +107,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <Blog />
     </Wrapper>
   );
 };

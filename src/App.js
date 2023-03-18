@@ -14,7 +14,7 @@ import CheckoutPage from "./pages/CheckoutPage";
 import PrivatRoute from "./pages/PrivatRoute";
 const App = () => {
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState({});
+  const [userCart, setCart] = useState({});
   const [order, setOrder] = useState({ size: "", id: "" });
   const [errorMessage, setErrorMessage] = useState("");
   const fetchCart = async () => {
@@ -24,7 +24,6 @@ const App = () => {
   const handleAddToCart = async (productId, quantity) => {
     const { cart } = await commerce.cart.add(productId, quantity);
     setCart(cart);
-    console.log(cart);
   };
   const updateCartQty = async (productId, quantity) => {
     const { cart } = await commerce.cart.update(productId, { quantity });
@@ -57,17 +56,17 @@ const App = () => {
   };
   useEffect(() => {
     fetchCart();
-  }, []);
+  }, [userCart]);
   return (
     <Router>
-      <Navbar cart={cart} />
+      <Navbar cart={userCart} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
           path="/account/:user"
           element={
             <PrivatRoute>
-              <Account cart={cart} />
+              <Account cart={userCart} />
             </PrivatRoute>
           }
         ></Route>
@@ -86,7 +85,7 @@ const App = () => {
           path="/cart"
           element={
             <Cart
-              cart={cart}
+              cart={userCart}
               updateCartQty={updateCartQty}
               removeFromCart={removeFromCart}
               handleEmptyCart={handleEmptyCart}
@@ -96,7 +95,7 @@ const App = () => {
         <Route
           path="/checkout"
           element={
-            <CheckoutPage cart={cart} setOrder={setOrder} order={order} />
+            <CheckoutPage cart={userCart} setOrder={setOrder} order={order} />
           }
         />
       </Routes>

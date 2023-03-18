@@ -39,41 +39,29 @@ const Cart = ({ updateCartQty, removeFromCart, handleEmptyCart, cart }) => {
           <Typography variant="h6">
             Subtotal: {cart.subtotal.formatted_with_symbol}
           </Typography>
-          {user ? (
-            <div>
-              <Button
-                className={classes.emptyButton}
-                size="medium"
-                type="button"
-                variant="contained"
-                color="secondary"
-                onClick={handleEmptyCart}
-              >
-                Empty cart
-              </Button>
-              <Button
-                className={classes.checkoutButton}
-                size="medium"
-                type="button"
-                variant="contained"
-                color="primary"
-                component={Link}
-                to="/checkout"
-              >
-                Checkout
-              </Button>
-            </div>
-          ) : (
+          <div>
             <Button
-              className={classes.loginButton}
+              className={classes.emptyButton}
               size="medium"
               type="button"
               variant="contained"
-              onClick={loginWithRedirect}
+              color="secondary"
+              onClick={handleEmptyCart}
             >
-              Login
+              Empty cart
             </Button>
-          )}
+            <Button
+              className={classes.checkoutButton}
+              size="medium"
+              type="button"
+              variant="contained"
+              color="primary"
+              component={Link}
+              to="/checkout"
+            >
+              Checkout
+            </Button>
+          </div>
         </div>
       </>
     );

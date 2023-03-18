@@ -17,6 +17,7 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
   const [reviewHeight, setReviewheight] = useState(false);
   const [reviews, setReviews] = useState(120);
   const [index, setIndex] = useState(0);
+  const [details, setdetails] = useState(false);
   const { products } = useProductsContext();
   const classes = useStyles();
   const { id } = useParams();
@@ -27,7 +28,7 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
   const handleActive = (e, index) => {
     setIndex(index);
   };
-  console.log(product);
+
   return (
     <Grid item className={classes.root}>
       {product && (
@@ -56,8 +57,9 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
               className={classes.media}
               title={product?.name}
               image={product?.image.url}
+              style={{ height: product.name.includes("Twin") && "290px" }}
             />
-            <div className={classes.mediaCont}>
+            {/* <div className={classes.mediaCont}>
               {product?.assets?.map((el, ind) => {
                 return (
                   <div key={el.id}>
@@ -74,7 +76,7 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
                   </div>
                 );
               })}
-            </div>
+            </div> */}
           </div>
 
           <div className={classes.sizeCont}>
@@ -85,7 +87,7 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
                 fontWeight: "100"
               }}
             >
-              Select Size
+              All in one 👶🏼
             </h4>
             <div
               style={{
@@ -147,7 +149,6 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
                     handleAddToCart(product.id, 1);
                     e.target.textContent = "Added to cart";
                     e.target.disabled = true;
-                    e.target.style.opacity = "0.5";
                     sizeandid.push(order);
                   }}
                 >
@@ -181,16 +182,37 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
                 }}
                 className="singel-item-decription"
               >
-                Tackle your most intense workouts in the Nike Air Max Alpha
-                Trainer 4. The wide, flat base with Nike Air cushioning gives
-                you comfortable stability for lifting. The heel is redesigned
-                with supportive padding that helps take a load off your heaviest
-                sets. Everything comes together in a durable shoe built for the
-                rigors of the gym.
+                High-quality strollers with all the accessories you need for
+                your stroller. With us, you get a cot, seat, diaper bag, cup
+                holder, rain cover and mosquito net. Car seat and isofix can be
+                bought with every stroller.
               </p>
-              <div className="singel-item-modal">
-                <p>View Product Details</p>
-                <div>product details modal hidden, show onclick </div>
+              <div
+                className="item-details"
+                style={{ height: details ? "100%" : "3rem" }}
+              >
+                <div className="item-det-con">
+                  <h4 style={{ marginLeft: "0.5rem", fontSize: "1.3rem" }}>
+                    Product Details
+                  </h4>
+                  <MdOutlineKeyboardArrowDown
+                    className="item-details-arr"
+                    onClick={() => setdetails(!details)}
+                  />
+                </div>
+                <p
+                  style={{
+                    display: details ? "block" : "none",
+                    margin: "0 0.5rem",
+                    lineHeight: "23px",
+                    maxWidth: "90%"
+                  }}
+                  dangerouslySetInnerHTML={{ __html: product?.description }}
+                >
+                  {/* <Link to="/learnmore" className="item-link">
+                    Learn more
+                  </Link> */}
+                </p>
               </div>
               {/*  */}
               <div
@@ -214,11 +236,7 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
                     maxWidth: "90%"
                   }}
                 >
-                  Free standard shipping and free 60-day returns for Nike
-                  Members.{" "}
-                  <Link to="/learnmore" className="item-link">
-                    Learn more
-                  </Link>
+                  Free standard shipping and free 60-day returns for Members.{" "}
                 </p>
               </div>
               {/*  */}
@@ -271,7 +289,7 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
                     }}
                   >
                     <h4 style={{ marginBottom: "0.3rem", fontWeight: "100" }}>
-                      I like the style
+                      Great pram and stylish
                     </h4>
                     <div style={{ display: "flex", marginBottom: "0.3rem" }}>
                       <BsStarFill
@@ -291,10 +309,9 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
                       />
                     </div>
                     <p>
-                      This was the first time that I bought a pair of shoes
-                      online I really like the shoes in a fit real good I would
-                      definitely he buying another pair of shoes from y'all I
-                      like Nikes
+                      Great stroller in every way. I got everything I needed and
+                      the delivery went smoothly. I highly recommend this
+                      stroller.
                     </p>
                   </div>
                 </div>

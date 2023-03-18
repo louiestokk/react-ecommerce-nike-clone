@@ -144,6 +144,7 @@ input[type="checkbox"] {
 .best-airmax-text {
   margin: 0.5rem 0.5rem;
   font-weight: 100;
+  font-family: "Anton", sans-serif;
 }
 /* end of Products Home */
 
@@ -160,6 +161,9 @@ input[type="checkbox"] {
 }
 .size-btn:hover {
   border: 1.5px solid black;
+}
+.add-to-cont {
+  margin-bottom: 7rem;
 }
 .add-to-cont img {
   width: 25px;
@@ -211,6 +215,11 @@ input[type="checkbox"] {
   align-items: center;
   height: 3rem;
   transition: all 0.3s linear;
+  height: 100%;
+}
+.item-det-con p {
+  transition: all 0.3s linear;
+  height: 100%;
 }
 .item-details-arr {
   margin-right: 0.5rem;
@@ -393,4 +402,20 @@ input[type="checkbox"] {
     height: 120px;
     width: 120px;
   }
+}
+.popular-products-title {
+  font-family: "Shantell Sans", cursive;
+}
+.popular-p {
+  font-size: 0.8rem;
+  font-family: "Shantell Sans", cursive;
+}
+.post-date {
+  font-family: "Shantell Sans", cursive;
+  font-size: 0.8rem;
+}
+.post-title {
+  font-family: "Anton", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 100;
 }

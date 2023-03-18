@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import StripeCheckout from "../components/Stripe/StripeCheckout";
+
 import { commerce } from "../components/lib/commerce";
 import { Link } from "react-router-dom";
 import { sizeandid } from "../components/Products/SingelProduct/SingelProduct";
@@ -11,7 +11,7 @@ const CheckoutPage = ({ cart, setOrder, order }) => {
     const generateToken = async () => {
       try {
         const token = await commerce.checkout.generateToken(cart.id, {
-          type: "cart",
+          type: "cart"
         });
 
         setCheckoutToken(token);
@@ -33,12 +33,7 @@ const CheckoutPage = ({ cart, setOrder, order }) => {
             </Link>
           </div>
         ) : (
-          <StripeCheckout
-            cart={cart}
-            checkoutToken={checkoutToken}
-            order={order}
-            setOrder={setOrder}
-          />
+          <div>checkout</div>
         )}
       </Wrapper>
     </main>
