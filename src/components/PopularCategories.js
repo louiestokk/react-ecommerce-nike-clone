@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     justifyContent: "center"
   },
   item: {
-    margin: "1.2rem 0.7rem",
+    margin: "1.2rem 0.8rem",
     cursor: "pointer",
     ["@media (min-width:644px)"]: {
       // eslint-disable-line no-useless-computed-key
@@ -22,8 +22,8 @@ const useStyles = makeStyles({
     }
   },
   img: {
-    height: "50px",
-    width: "50px",
+    height: "53.5px",
+    width: "53.5px",
     ["@media (min-width:644px)"]: {
       // eslint-disable-line no-useless-computed-key
       height: "70px",

@@ -32,7 +32,7 @@ const Home = () => {
               className="airmax"
               key={product.id}
               style={{
-                marginLeft: product.name === "Nike Air Vapor Max" && "1rem"
+                marginLeft: "1rem"
               }}
             >
               <img src={product.image.url} alt={product.name} />
@@ -64,7 +64,7 @@ const Home = () => {
               className="airmax"
               key={product.id}
               style={{
-                marginLeft: product.name === "Nike Air Vapor Max" && "1rem"
+                marginLeft: "1rem"
               }}
             >
               <img src={product.image.url} alt={product.name} />
