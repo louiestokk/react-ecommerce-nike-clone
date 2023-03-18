@@ -10,10 +10,10 @@ export const helplinks = [
   { id: 9, label: "Send Us Feedback", url: "/" }
 ];
 export const navlinks = [
-  { id: 2, label: "Duovagnar", url: "/" },
-  { id: 3, label: "Syskonvagnar", url: "/" },
-  { id: 4, label: "Tillbehör", url: "/" },
-  { id: 5, label: "Utförsäljning", url: "/" }
+  { id: 2, label: "Duovagnar", url: "/barnvagnar/duovagnar" },
+  { id: 3, label: "Syskonvagnar", url: "/barnvagnar/syskonvagnar" },
+  { id: 4, label: "Tillbehör", url: "/barnvagnar/accessories/tillbehor" },
+  { id: 5, label: "Utförsäljning", url: "/barnvagnar/rea-barnvagnar" }
 ];
 
 export const footerlinkscol1 = [

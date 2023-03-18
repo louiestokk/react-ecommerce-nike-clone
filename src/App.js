@@ -12,6 +12,9 @@ import CheckoutPage from "./pages/CheckoutPage";
 import PrivatRoute from "./pages/PrivatRoute";
 import BlogPost from "./components/BlogPost";
 import Tillbehor from "./pages/Tillbehor";
+import Duovagnar from "./pages/Duovagnar";
+import Syskonvagnar from "./pages/Syskonvagnar";
+import ReaBarnvagnar from "./pages/ReaBarnvagnar";
 const App = () => {
   const [userCart, setCart] = useState({});
   const [order, setOrder] = useState({ size: "", id: "" });
@@ -76,6 +79,15 @@ const App = () => {
         <Route
           path="/barnvagnar/accessories/tillbehor"
           element={<Tillbehor />}
+        ></Route>
+        <Route path="/barnvagnar/duovagnar" element={<Duovagnar />}></Route>
+        <Route
+          path="/barnvagnar/syskonvagnar"
+          element={<Syskonvagnar />}
+        ></Route>
+        <Route
+          path="/barnvagnar/rea-barnvagnar"
+          element={<ReaBarnvagnar />}
         ></Route>
         <Route path="/products" element={<Products />}></Route>
         <Route

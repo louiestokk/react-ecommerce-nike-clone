@@ -39,19 +39,22 @@ const imageArray = [
   {
     url: "https://www.svgrepo.com/show/161799/baby-stroller.svg",
     title: "Duovagnar",
-    path: "products"
+    path: "/barnvagnar/duovagnar"
   },
   {
     url: "https://www.svgrepo.com/show/483597/baby-26.svg",
-    title: "Tillbehör"
+    title: "Tillbehör",
+    path: "/barnvagnar/accessories/tillbehor"
   },
   {
     url: "https://www.svgrepo.com/show/57180/car-baby-chair.svg",
-    title: "Bilstolar"
+    title: "Bilstolar",
+    path: "/barnvagnar/accessories/tillbehor"
   },
   {
     url: "https://www.svgrepo.com/show/477201/sale-free-5.svg",
-    title: "Rea"
+    title: "Rea",
+    path: "/barnvagnar/rea-barnvagnar"
   }
 ];
 const PopularCategories = () => {
@@ -62,7 +65,11 @@ const PopularCategories = () => {
       <section className={classes.container}>
         {imageArray?.map((image, i) => {
           return (
-            <div key={i} className={classes.item}>
+            <div
+              key={i}
+              className={classes.item}
+              onClick={() => (window.location.href = `${image.path}`)}
+            >
               <img src={image.url} alt={image.title} className={classes.img} />
               <p className="popular-p">{image.title}</p>
             </div>
