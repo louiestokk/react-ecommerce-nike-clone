@@ -8,19 +8,12 @@ import { FilterProvider } from "./context/filter_context";
 import { ProductsProvider } from "./context/products_context";
 
 ReactDOM.render(
-  <Auth0Provider
-    domain={process.env.REACT_APP_AUTH0_DOMAIN}
-    clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
-    redirectUri={window.location.origin}
-    cacheLocation="localstorage"
-  >
-    <UserProvider>
-      <ProductsProvider>
-        <FilterProvider>
-          <App />
-        </FilterProvider>
-      </ProductsProvider>
-    </UserProvider>
-  </Auth0Provider>,
+  <UserProvider>
+    <ProductsProvider>
+      <FilterProvider>
+        <App />
+      </FilterProvider>
+    </ProductsProvider>
+  </UserProvider>,
   document.getElementById("root")
 );
