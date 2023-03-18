@@ -165,7 +165,7 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
                     e.target.disabled = true;
                   }}
                 >
-                  Add to Cart
+                  Add to cart
                 </button>
                 <button
                   type="button"

@@ -57,8 +57,8 @@ const Home = () => {
           <Oval heigth="150" width="150" color="black" ariaLabel="loading" />
         )}
         {products.map((product, ind) => {
-          if (ind === 0) return;
-          if (ind === 1) return;
+          if (ind === 0) return <></>;
+          if (ind === 1) return <></>;
           return (
             <div
               className="airmax"

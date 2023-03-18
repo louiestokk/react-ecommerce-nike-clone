@@ -18,6 +18,8 @@ import ReaBarnvagnar from "./pages/ReaBarnvagnar";
 const App = () => {
   const [userCart, setCart] = useState({});
   const [order, setOrder] = useState({ size: "", id: "" });
+  const [sent, setsent] = useState(false);
+  const [sending, setsending] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const fetchCart = async () => {
     const resp = await commerce.cart.retrieve();

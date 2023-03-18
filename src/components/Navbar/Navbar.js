@@ -4,7 +4,6 @@ import HelpLinks from "./HelpLinks";
 import { navlinks } from "../../utils/data";
 import { useUserContext } from "../../context/user_context";
 import LogoutAccount from "./LogoutAccount";
-
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { Badge, IconButton } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";

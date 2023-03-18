@@ -1,28 +1,35 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import klarna from "../images/klarna.jpg";
 const HomeTextSlider = () => {
   const [slide, setSlide] = useState(false);
   useEffect(() => {
     const timeout = setTimeout(() => {
       setSlide(!slide);
     }, 4000);
-    return () => {
-      clearTimeout(timeout);
-    };
   });
   return (
     <Wrapper className="text-slider-container">
       {slide && (
         <div className={slide ? "text-show-slide text-slide" : "text-slide"}>
-          <h4>Save Up to 40%</h4>
-          <Link to="/products">Shop all your favorites</Link>
+          <h4>Rea Upp till 40%</h4>
+          <Link to="/products">Se all favorites</Link>
         </div>
       )}
       {!slide && (
-        <div className={!slide ? "text-show-slide text-slide" : "text-slide"}>
-          <h4>Free Membership - Exclusive products.</h4>
-          <Link to="/joinus">Join Now</Link>
+        <div
+          className={!slide ? "text-show-slide text-slide" : "text-slide"}
+          style={{ display: "flex", alignItems: "center" }}
+        >
+          <h4>Smooth Shopping</h4>
+          <img
+            src={klarna}
+            style={{ height: "20px", width: "20px", margin: "0 0.1rem" }}
+          />
+          <Link to="/products" style={{ marginLeft: "0.5rem" }}>
+            Shop Now
+          </Link>
         </div>
       )}
     </Wrapper>

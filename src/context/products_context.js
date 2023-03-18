@@ -16,12 +16,12 @@ const ProductsProvider = ({ children }) => {
       const { data } = await commerce.products.list();
       setProducts(data);
       //
-      const color = [].concat(...data.map((el) => el?.variant_groups));
+      const color = [].concat(...data?.map((el) => el?.variant_groups));
       const prov = color
         .filter((el) => el?.name === "color")
         .map((el) => el?.options);
       const colors = Array.from(
-        new Set([].concat(...prov).map((el) => el?.name))
+        new Set([].concat(...prov)?.map((el) => el?.name))
       );
       setuniqcolor(colors);
       setLoading(false);
