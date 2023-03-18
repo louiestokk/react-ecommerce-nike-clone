@@ -14,22 +14,24 @@ const HomeTextSlider = () => {
       {slide && (
         <div className={slide ? "text-show-slide text-slide" : "text-slide"}>
           <h4>Rea Upp till 40%</h4>
-          <Link to="/products">Se all favorites</Link>
+          <Link to="/products">Se all favoriter</Link>
         </div>
       )}
       {!slide && (
         <div
           className={!slide ? "text-show-slide text-slide" : "text-slide"}
-          style={{ display: "flex", alignItems: "center" }}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center"
+          }}
         >
           <h4>Smooth Shopping</h4>
           <img
             src={klarna}
-            style={{ height: "20px", width: "20px", margin: "0 0.1rem" }}
+            style={{ height: "20px", width: "20px", margin: "0 0.2rem" }}
           />
-          <Link to="/products" style={{ marginLeft: "0.5rem" }}>
-            Shop Now
-          </Link>
+          <Link to="/products">Shop Now</Link>
         </div>
       )}
     </Wrapper>
