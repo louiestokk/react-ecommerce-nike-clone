@@ -21,7 +21,8 @@ const useStyles = makeStyles({
     }
   },
   item: {
-    margin: "1.5rem 1rem"
+    margin: "1.5rem 1rem",
+    cursor: "pointer"
   }
 });
 const Blog = () => {
@@ -32,7 +33,13 @@ const Blog = () => {
       <section className={classes.container}>
         {blogposts?.map((post, ind) => {
           return (
-            <div key={ind} className={classes.item}>
+            <div
+              key={ind}
+              className={classes.item}
+              onClick={() =>
+                (window.location.href = `/barnvagnar/blog/blogpost/${post.blogid}`)
+              }
+            >
               <img src={post.url} alt={post.title} className={classes.img} />
               <p className="post-date">{post.date}</p>
               <h4 className="post-title">{post.title}</h4>

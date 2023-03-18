@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Hero from "../components/Hero";
 import HomeTextSlider from "../components/HomeTextSlider";
 import { useProductsContext } from "../context/products_context";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { Oval } from "react-loader-spinner";
-import banner from "../images/nikekk.jpg";
-import banner1 from "../images/yes.webp";
 import trend from "../images/trend1.png";
 import trend2 from "../images/trend2.png";
 import styled from "styled-components";

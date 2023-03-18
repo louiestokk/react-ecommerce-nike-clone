@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { commerce } from "./components/lib/commerce";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-// nya v7 raect-router-dom man har bytt ut Switch mot Routes. Och i  Route skall man göra som nedan samt useLocation är navigate och loaction.push('/') är navigate('/')
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home";
 import Account from "./components/Account/Account";
@@ -12,8 +10,9 @@ import Footer from "./components/Footer/Footer";
 import Cart from "./components/Cart/Cart";
 import CheckoutPage from "./pages/CheckoutPage";
 import PrivatRoute from "./pages/PrivatRoute";
+import BlogPost from "./components/BlogPost";
+import Tillbehor from "./pages/Tillbehor";
 const App = () => {
-  const [products, setProducts] = useState([]);
   const [userCart, setCart] = useState({});
   const [order, setOrder] = useState({ size: "", id: "" });
   const [errorMessage, setErrorMessage] = useState("");
@@ -69,6 +68,14 @@ const App = () => {
               <Account cart={userCart} />
             </PrivatRoute>
           }
+        ></Route>
+        <Route
+          path="/barnvagnar/blog/blogpost/:blogid"
+          element={<BlogPost />}
+        ></Route>
+        <Route
+          path="/barnvagnar/accessories/tillbehor"
+          element={<Tillbehor />}
         ></Route>
         <Route path="/products" element={<Products />}></Route>
         <Route
