@@ -114,8 +114,9 @@ input[type="checkbox"] {
 .airmax-container {
   display: flex;
   overflow-x: scroll;
+  overflow-y: hidden;
   font-family: "Dongle", sans-serif;
-  margin-bottom: 5rem;
+  height: 100%;
 }
 .airmax-container::-webkit-scrollbar {
   display: none;

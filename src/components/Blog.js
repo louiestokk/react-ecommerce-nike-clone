@@ -12,7 +12,8 @@ const useStyles = makeStyles({
   },
   container: {
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "flex",
+    overflowX: "scroll",
     ["@media (min-width:1000px)"]: {
       // eslint-disable-line no-useless-computed-key
       flexDirection: "row",

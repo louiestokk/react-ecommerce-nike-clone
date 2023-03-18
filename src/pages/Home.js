@@ -51,7 +51,9 @@ const Home = () => {
           );
         })}
       </div>
-      <h2 className="best-airmax-text">Bäst Säljare</h2>
+      <h2 className="best-airmax-text" style={{ marginTop: "5rem" }}>
+        Bäst Säljare
+      </h2>
       <div className="airmax-container">
         {loading && (
           <Oval heigth="150" width="150" color="black" ariaLabel="loading" />
@@ -84,7 +86,9 @@ const Home = () => {
         })}
       </div>
 
-      <h2 className="best-airmax-text">Trendigt Nu</h2>
+      <h2 className="best-airmax-text" style={{ marginTop: "5rem" }}>
+        Trendigt Nu
+      </h2>
       <section className="trending-cont">
         <div
           className="trending"
