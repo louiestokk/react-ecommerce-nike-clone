@@ -42,11 +42,24 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
                 {product.name}
               </Typography>
               <Typography
+                variant="p"
+                style={{
+                  marginLeft: "1rem",
+                  marginBottom: "1rem",
+                  fontSize: "1rem",
+                  textDecoration: "line-through",
+                  color: "gray"
+                }}
+              >
+                kr{product?.price?.raw * 1.5}.00
+              </Typography>
+              <Typography
                 variant="h6"
                 style={{
                   marginLeft: "1rem",
                   marginBottom: "1rem",
-                  fontSize: "1rem"
+                  fontSize: "1rem",
+                  color: "red"
                 }}
               >
                 {product?.price?.formatted_with_symbol}
@@ -147,12 +160,12 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
                   onClick={(e) => {
                     setOrder({ ...order, id: product.id });
                     handleAddToCart(product.id, 1);
-                    e.target.textContent = "Added to cart";
-                    e.target.disabled = true;
                     sizeandid.push(order);
+                    e.target.textContent = "Added to Cart";
+                    e.target.disabled = true;
                   }}
                 >
-                  Add to Bag
+                  Add to Cart
                 </button>
                 <button
                   type="button"

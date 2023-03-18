@@ -342,11 +342,6 @@ input[type="checkbox"] {
   border: none;
   cursor: pointer;
 }
-.trend-content button:hover {
-  background: transparent;
-  color: black;
-  border: 1px solid black;
-}
 
 @media screen and (max-width: 680px) {
   .hero-content {

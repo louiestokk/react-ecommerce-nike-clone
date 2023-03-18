@@ -94,8 +94,11 @@ const Home = () => {
         >
           <img src={trend} alt="baby stroller" />
           <div className="trend-content" style={{ textAlign: "center" }}>
-            <h4>City star all in one duo pram. Now 50%</h4>
-            <button type="button" onClick={() => navigate("/products")}>
+            <h4>City star all in one duo pram. Sale %</h4>
+            <button
+              type="button"
+              onClick={() => navigate("/product/prod_QG375vM4VrorMO")}
+            >
               Shop
             </button>
           </div>
@@ -103,8 +106,11 @@ const Home = () => {
         <div className="trending" style={{ marginRight: "0.5rem" }}>
           <img src={trend2} alt="baby pram" />
           <div className="trend-content" style={{ textAlign: "center" }}>
-            <h4>Stylish twin pram with all you need. Now 30%</h4>
-            <button type="button" onClick={() => navigate("/products")}>
+            <h4>Stylish twin pram with all you need. Sale % </h4>
+            <button
+              type="button"
+              onClick={() => navigate("/product/prod_0egY5eeQRb53Qn")}
+            >
               Shop
             </button>
           </div>
