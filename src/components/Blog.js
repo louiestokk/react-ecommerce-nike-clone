@@ -7,19 +7,20 @@ const useStyles = makeStyles({
   },
   img: {
     width: "300px",
-    height: "300px"
+    height: "300px",
+    marginBottom: "0.3rem"
   },
   container: {
     display: "flex",
     flexDirection: "column",
-    ["@media (min-width:644px)"]: {
+    ["@media (min-width:1000px)"]: {
       // eslint-disable-line no-useless-computed-key
       flexDirection: "row",
       justifyContent: "center"
     }
   },
   item: {
-    margin: "1rem 1rem"
+    margin: "1.5rem 1rem"
   }
 });
 const Blog = () => {

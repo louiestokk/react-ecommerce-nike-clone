@@ -419,3 +419,40 @@ input[type="checkbox"] {
   letter-spacing: 1px;
   font-weight: 100;
 }
+.reviews-root {
+  background: var(--mainGray);
+  display: flex;
+  flex-direction: column;
+  height: 740px;
+  width: 100%;
+  margin-bottom: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+.reviews-container {
+  background: white;
+  height: 140px;
+  margin: 0.5rem 0;
+  width: 94%;
+  border-radius: 5px;
+  font-weight: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.reviews-container h4 {
+  font-family: "Anton", sans-serif;
+  margin: 0.4rem 0;
+}
+.reviews-container p {
+  max-width: 300px;
+  font-family: "Shantell Sans", cursive;
+}
+@media screen and (min-width: 800px) {
+  .reviews-container {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}

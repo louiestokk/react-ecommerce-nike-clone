@@ -12,6 +12,7 @@ import trend2 from "../images/trend2.png";
 import styled from "styled-components";
 import PopularCategories from "../components/PopularCategories";
 import Blog from "../components/Blog";
+import Reviews from "../components/Reviews";
 const Home = () => {
   const navigate = useNavigate();
   const { products, loading } = useProductsContext();
@@ -107,6 +108,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <Reviews />
       <Blog />
     </Wrapper>
   );
