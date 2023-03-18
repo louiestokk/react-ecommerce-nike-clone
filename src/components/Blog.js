@@ -6,8 +6,8 @@ const useStyles = makeStyles({
     textAlign: "center"
   },
   img: {
-    width: "300px",
-    height: "300px",
+    width: "240px",
+    height: "240px",
     marginBottom: "0.3rem"
   },
   container: {
