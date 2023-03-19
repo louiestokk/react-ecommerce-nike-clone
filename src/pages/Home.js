@@ -18,7 +18,7 @@ const Home = () => {
     <Wrapper>
       <HomeTextSlider />
       <Hero />
-      <PopularCategories />
+      <PopularCategories title={"Populära Kategorier"} margin={"5rem"} />
       <h2 className="best-airmax-text">Bäst omdöme</h2>
       <div className="airmax-container">
         {loading && (

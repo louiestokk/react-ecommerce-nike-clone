@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles({
   root: {
     textAlign: "center",
-    marginBottom: "5rem",
     ["@media (min-width:644px)"]: {
       // eslint-disable-line no-useless-computed-key
       marginTop: "3rem"
@@ -57,11 +56,11 @@ const imageArray = [
     path: "/barnvagnar/rea-barnvagnar"
   }
 ];
-const PopularCategories = () => {
+const PopularCategories = ({ title, margin }) => {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
-      <h1 className="popular-products-title">Populära Kategorier</h1>
+    <div className={classes.root} style={{ marginBottom: margin }}>
+      <h1 className="popular-products-title">{title}</h1>
       <section className={classes.container}>
         {imageArray?.map((image, i) => {
           return (

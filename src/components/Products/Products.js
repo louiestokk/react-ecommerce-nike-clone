@@ -8,27 +8,18 @@ import Product from "./Product/Product";
 import { useProductsContext } from "../../context/products_context";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { Oval } from "react-loader-spinner";
-import { Link } from "react-router-dom";
-import { useFilterContext } from "../../context/filter_context";
 import styled from "styled-components";
-import { navlinks } from "../../utils/data";
+import PopularCategories from "../PopularCategories";
 const Products = () => {
-  const { products, categories, loading } = useProductsContext();
-  const { showFilter, setShowFilter } = useFilterContext();
+  const { products, loading } = useProductsContext();
+  const [filtering, setfiltering] = useState(false);
   const classes = useStyles();
   return (
     <Wrapper>
       <HomeTextSlider />
-      <h4 className="products-top-h4">Styles for Self Love</h4>
       <section className="sss" style={{ marginBottom: "1rem" }}>
         <div className="products-top-div">
-          {navlinks.map((el, ind) => {
-            return (
-              <Link to={el.url} key={ind} className={classes.category}>
-                {el.label}
-              </Link>
-            );
-          })}
+          <PopularCategories />
         </div>
         <div
           style={{
@@ -38,33 +29,35 @@ const Products = () => {
             marginBottom: "0.6rem"
           }}
         >
-          <h5 className="numItems">{products.length} Results</h5>
-
-          <button
-            type="button"
+          <select
             className={classes.filterbtn}
-            onClick={() => setShowFilter(!showFilter)}
+            style={{
+              width: "7rem",
+              textAlign: "center",
+              marginRight: "0rem",
+              marginLeft: "0.75rem"
+            }}
           >
+            <option value={"high"}>Högsta Pris</option>
+            <option value={"low"}>Lägsta Pris</option>
+            <option value={"best"}>Bäst Säljare</option>
+          </select>
+
+          <button type="button" className={classes.filterbtn}>
             Filter
             <BsFilter style={{ fontSize: "1.3rem", marginLeft: "0.2rem" }} />
           </button>
         </div>
       </section>
-      <div className={classes.root}>
-        <Filter />
-        <div className={classes.container}>
-          {loading && (
-            <Oval heigth="150" width="150" color="black" ariaLabel="loading" />
-          )}
-          <Grid container className={classes.products}>
-            {products.map((product, ind) => {
-              return (
-                <Grid key={ind} className={classes.product}>
-                  <Product product={product} />
-                </Grid>
-              );
-            })}
-          </Grid>
+      <Filter showFilter={filtering} />
+      <div className={classes.container}>
+        {loading && (
+          <Oval heigth="150" width="150" color="black" ariaLabel="loading" />
+        )}
+        <div className="product-container">
+          {products.map((product, ind) => {
+            return <Product product={product} />;
+          })}
         </div>
       </div>
     </Wrapper>
@@ -90,8 +83,7 @@ const Wrapper = styled.section`
     flex-direction: row;
     justify-content: center;
     width: 100%;
-    height: 2.4rem;
-    font-family: "Dongle", sans-serif;
+    height: 100%;
     border-bottom: 1px solid rgb(226, 225, 225);
     overflow-x: scroll;
   }

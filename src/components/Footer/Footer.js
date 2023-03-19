@@ -40,7 +40,7 @@ const Footer = () => {
         </div>
         <div className={classes.links}>
           <Link to="/" className={classes.link}>
-            ABOUT NIKE
+            ABOUT US
           </Link>
           {footerlinkscol3.map((link) => {
             const { id, url, label } = link;
@@ -79,7 +79,7 @@ const Footer = () => {
             Terms of Use
           </Link>
           <Link to="/policy" className={classes.bottomlink}>
-            Nike Privacy Policy
+            Privacy Policy
           </Link>
         </div>
         <div
@@ -88,35 +88,36 @@ const Footer = () => {
             alingItems: "center",
             justifyContent: "space-between",
             fontSize: "0.7rem",
-            marginTop: "2rem",
+            marginTop: "2rem"
           }}
         >
           <div
             style={{
               display: "flex",
               marginLeft: "1rem",
-              alignItems: "center",
+              alignItems: "center"
             }}
           >
             <BiMap
               style={{
                 marginRight: "0.3rem",
                 opacity: "1",
-                fontSize: "1.2rem",
+                fontSize: "1.2rem"
               }}
             />
             <p
               style={{
                 fontSize: "0.7rem",
                 opacity: "0.7",
-                letterSpacing: "1px",
+                letterSpacing: "1px"
               }}
             >
-              United States{" "}
+              Sweden/Denmark{" "}
             </p>
             <br style={{ marginRight: "1rem" }} />
             <p style={{ opacity: "0.5" }}>
-              &copy; {new Date().getFullYear()} Nike, Inc All Rights Reserved
+              &copy; {new Date().getFullYear()} Stokk Tech Limited, All Rights
+              Reserved
             </p>
           </div>
         </div>

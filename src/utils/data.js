@@ -44,7 +44,7 @@ export const footerlinkscol1 = [
   },
   {
     id: 6,
-    label: "Nike jornal",
+    label: "Our jornal",
     url: "/jornal"
   },
   {
