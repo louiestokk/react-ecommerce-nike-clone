@@ -27,7 +27,7 @@ const Product = ({ product }) => {
   const navigate = useNavigate();
   const classes = useStyles();
   const { id, name, price, categories, image, description } = product;
-  console.log(product);
+
   return (
     <div
       className={classes.root}

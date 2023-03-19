@@ -2,21 +2,25 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles(() => ({
   root: {
-    width: "240px",
+    width: "300px",
+    display: "flex"
   },
   media: {
-    height: "260px",
+    height: "120px",
+    width: "100px",
+    objectFit: "cover"
   },
   cardContent: {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-between",
+    justifyContent: "space-between"
   },
-  cartActions: {
-    justifyContent: "space-between",
+  cardActions: {
+    display: "flex",
+    flexDirection: "column"
   },
   buttons: {
     display: "flex",
-    alignItems: "center",
-  },
+    alignItems: "center"
+  }
 }));

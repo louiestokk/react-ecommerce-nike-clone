@@ -13,7 +13,7 @@ export const navlinks = [
   { id: 2, label: "Duovagnar", url: "/barnvagnar/duovagnar" },
   { id: 3, label: "Syskonvagnar", url: "/barnvagnar/syskonvagnar" },
   { id: 4, label: "Tillbehör", url: "/barnvagnar/accessories/tillbehor" },
-  { id: 5, label: "Utförsäljning", url: "/barnvagnar/rea-barnvagnar" }
+  { id: 5, label: "Rea", url: "/barnvagnar/rea-barnvagnar" }
 ];
 
 export const footerlinkscol1 = [

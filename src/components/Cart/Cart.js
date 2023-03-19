@@ -36,10 +36,13 @@ const Cart = ({ updateCartQty, removeFromCart, handleEmptyCart, cart }) => {
           })}
         </Grid>
         <div className={classes.cardDetails}>
-          <Typography variant="h6">
-            Subtotal: {cart.subtotal.formatted_with_symbol}
-          </Typography>
           <div>
+            <p>Ord. pris {cart.subtotal.formatted_with_symbol}</p>
+            <p>Frakt 0kr</p>
+            <h4>Subtotal: {cart.subtotal.formatted_with_symbol}</h4>
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column" }}>
             <Button
               className={classes.emptyButton}
               size="medium"
@@ -48,7 +51,7 @@ const Cart = ({ updateCartQty, removeFromCart, handleEmptyCart, cart }) => {
               color="secondary"
               onClick={handleEmptyCart}
             >
-              Empty cart
+              Empty Cart
             </Button>
             <Button
               className={classes.checkoutButton}
@@ -59,7 +62,7 @@ const Cart = ({ updateCartQty, removeFromCart, handleEmptyCart, cart }) => {
               component={Link}
               to="/checkout"
             >
-              Checkout
+              Till Kassan
             </Button>
           </div>
         </div>
