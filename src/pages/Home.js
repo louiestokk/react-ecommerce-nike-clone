@@ -11,11 +11,27 @@ import styled from "styled-components";
 import PopularCategories from "../components/PopularCategories";
 import Blog from "../components/Blog";
 import Reviews from "../components/Reviews";
+import SeoText from "../components/SeoText";
+import { Helmet } from "react-helmet-async";
 const Home = () => {
   const navigate = useNavigate();
   const { products, loading } = useProductsContext();
   return (
     <Wrapper>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>
+          {
+            "Strolly - Barnvagnar online - Hitta prisvärda och högkvalitativa vagnar till ditt barn."
+          }
+        </title>
+        <meta
+          name="description"
+          content={
+            "Letar du efter prisvärda barnvagnar online? Utforska vårt stora utbud av billiga barnvagnar på nätet och hitta den perfekta vagnen för ditt barn. Vårt sortiment inkluderar populära märken och modeller till överkomliga priser. Upptäck hur du kan spara pengar och tid genom att köpa din barnvagn hos oss idag!"
+          }
+        />
+      </Helmet>
       <HomeTextSlider />
       <Hero />
       <PopularCategories title={"Populära Kategorier"} margin={"5rem"} />
@@ -118,6 +134,7 @@ const Home = () => {
       </section>
       <Reviews />
       <Blog />
+      <SeoText />
     </Wrapper>
   );
 };

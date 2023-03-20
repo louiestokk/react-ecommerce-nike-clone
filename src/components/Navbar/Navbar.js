@@ -60,7 +60,7 @@ const Navbar = ({ cart }) => {
       <div className="icons-container">
         <div
           onClick={() => navigate("/")}
-          style={{ display: "flex", alignItems: "center" }}
+          style={{ display: "flex", alignItems: "center", cursor: "pointer" }}
         >
           <h4
             className="shantel"
@@ -131,7 +131,12 @@ const Navbar = ({ cart }) => {
         />
         {navlinks.map((link) => {
           return (
-            <Link key={link.id} to={link.url} className="nav-menu-link">
+            <Link
+              key={link.id}
+              to={link.url}
+              className="nav-menu-link"
+              onClick={() => setShowNavMenu(!showNavMenu)}
+            >
               <h4>{link.label}</h4>
               <MdOutlineKeyboardArrowRight />
             </Link>

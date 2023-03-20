@@ -8,6 +8,8 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { Oval } from "react-loader-spinner";
 import styled from "styled-components";
 import PopularCategories from "../PopularCategories";
+import SeoText from "../SeoText";
+import { Helmet } from "react-helmet-async";
 const Products = ({ title, desc }) => {
   const { products, loading, setProducts } = useProductsContext();
   const [filtering, setfiltering] = useState(false);
@@ -27,6 +29,20 @@ const Products = ({ title, desc }) => {
 
   return (
     <Wrapper>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>
+          {
+            "Strolly - Barnvagnar online - Hitta prisvärda och högkvalitativa vagnar till ditt barn."
+          }
+        </title>
+        <meta
+          name="description"
+          content={
+            "Letar du efter prisvärda barnvagnar online? Utforska vårt stora utbud av billiga barnvagnar på nätet och hitta den perfekta vagnen för ditt barn. Vårt sortiment inkluderar populära märken och modeller till överkomliga priser. Upptäck hur du kan spara pengar och tid genom att köpa din barnvagn hos oss idag!"
+          }
+        />
+      </Helmet>
       <HomeTextSlider />
       <section className="sss" style={{ marginBottom: "1rem" }}>
         <div
@@ -100,6 +116,7 @@ const Products = ({ title, desc }) => {
           </div>
         )}
       </div>
+      <SeoText />
     </Wrapper>
   );
 };
