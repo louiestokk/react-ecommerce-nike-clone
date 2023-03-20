@@ -20,7 +20,9 @@ const CartItem = ({ item, removeFromCart, updateCartQty }) => {
       <div>
         <CardContent className={classes.cardContent}>
           <h4>{item.name}</h4>
-          <h5>{item.line_total.formatted_with_symbol}</h5>
+          <h5 style={{ color: "red", marginTop: "0.2rem" }}>
+            {item.line_total.formatted_with_symbol}
+          </h5>
         </CardContent>
         <CardActions className={classes.cardActions}>
           <div className={classes.buttons}>

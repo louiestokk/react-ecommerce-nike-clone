@@ -36,7 +36,7 @@ const RelatedProducts = ({ product }) => {
                     marginLeft: "1rem",
                     cursor: "pointer"
                   }}
-                  onClick={() => navigate("/products")}
+                  onClick={() => navigate(`/product/${id}`)}
                 >
                   <img
                     src={image.url}

@@ -464,9 +464,7 @@ input[type="checkbox"] {
   }
 }
 .bubble-right {
-  /* Modify size here: */
   --size: 50px;
-
   position: relative;
   width: var(--size);
   height: calc(var(--size) * 0.66);
@@ -486,4 +484,9 @@ input[type="checkbox"] {
   border-right: 0;
   margin-top: calc(var(--size) * 0.13 * -1);
   margin-right: calc(var(--size) * 0.13 * -1);
+}
+#cart-total-content {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 0.9rem;
 }

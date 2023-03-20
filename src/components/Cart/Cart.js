@@ -35,36 +35,30 @@ const Cart = ({ updateCartQty, removeFromCart, handleEmptyCart, cart }) => {
             );
           })}
         </Grid>
-        <div className={classes.cardDetails}>
+        <div className={classes.cardDetails} id="cart-total-content">
           <div>
-            <p>Ord. pris {cart.subtotal.formatted_with_symbol}</p>
+            <p style={{ letterSpacing: "1px" }}>
+              Ord. pris kr{Math.floor(cart.subtotal.raw * 1.5)}.00
+            </p>
+            <p style={{ color: "red" }}>
+              Rabatt {Math.floor(cart.subtotal.raw * 1.5) - cart.subtotal.raw}kr
+            </p>
             <p>Frakt 0kr</p>
             <h4>Subtotal: {cart.subtotal.formatted_with_symbol}</h4>
           </div>
-
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <Button
-              className={classes.emptyButton}
-              size="medium"
-              type="button"
-              variant="contained"
-              color="secondary"
-              onClick={handleEmptyCart}
-            >
-              Empty Cart
-            </Button>
-            <Button
-              className={classes.checkoutButton}
-              size="medium"
-              type="button"
-              variant="contained"
-              color="primary"
-              component={Link}
-              to="/checkout"
-            >
-              Till Kassan
-            </Button>
-          </div>
+        </div>
+        <div style={{ marginTop: "0.5rem" }}>
+          <Button
+            className={classes.checkoutButton}
+            size="large"
+            type="button"
+            variant="contained"
+            color="primary"
+            component={Link}
+            to="/checkout"
+          >
+            Till Kassan
+          </Button>
         </div>
       </>
     );

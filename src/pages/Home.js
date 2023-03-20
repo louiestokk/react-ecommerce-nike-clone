@@ -19,12 +19,16 @@ const Home = () => {
       <HomeTextSlider />
       <Hero />
       <PopularCategories title={"Populära Kategorier"} margin={"5rem"} />
-      <h2 className="best-airmax-text">Bäst omdöme</h2>
+      <h2 className="best-airmax-text" style={{ marginTop: "5rem" }}>
+        Bäst Säljare
+      </h2>
       <div className="airmax-container">
         {loading && (
           <Oval heigth="150" width="150" color="black" ariaLabel="loading" />
         )}
-        {products.map((product) => {
+        {products.map((product, ind) => {
+          if (ind === 0) return <></>;
+          if (ind === 1) return <></>;
           return (
             <div
               className="airmax"
@@ -49,16 +53,12 @@ const Home = () => {
           );
         })}
       </div>
-      <h2 className="best-airmax-text" style={{ marginTop: "5rem" }}>
-        Bäst Säljare
-      </h2>
+      <h2 className="best-airmax-text">Bäst omdöme</h2>
       <div className="airmax-container">
         {loading && (
           <Oval heigth="150" width="150" color="black" ariaLabel="loading" />
         )}
-        {products.map((product, ind) => {
-          if (ind === 0) return <></>;
-          if (ind === 1) return <></>;
+        {products.map((product) => {
           return (
             <div
               className="airmax"
