@@ -53,7 +53,11 @@ const Home = () => {
                 marginLeft: "1rem"
               }}
             >
-              <img src={product.image.url} alt={product.name} />
+              <img
+                src={product?.image?.url}
+                alt={product.name}
+                style={{ objectFit: "contain" }}
+              />
               <h5>{product.name}</h5>
               <Link
                 to={`/product/${product.id}`}
@@ -74,7 +78,7 @@ const Home = () => {
         {loading && (
           <Oval heigth="150" width="150" color="black" ariaLabel="loading" />
         )}
-        {products.map((product) => {
+        {products.map((product, i) => {
           return (
             <div
               className="airmax"
@@ -83,7 +87,11 @@ const Home = () => {
                 marginLeft: "1rem"
               }}
             >
-              <img src={product.image.url} alt={product.name} />
+              <img
+                src={product.image.url}
+                alt={product.name}
+                style={{ objectFit: "contain" }}
+              />
               <h5>{product.name}</h5>
               <Link
                 to={`/product/${product.id}`}

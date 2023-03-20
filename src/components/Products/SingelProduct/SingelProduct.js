@@ -66,11 +66,13 @@ const SingelProduct = ({ handleAddToCart, setOrder, order }) => {
               </Typography>
             </div>
 
-            <CardMedia
+            <img
               className={classes.media}
               title={product?.name}
-              image={product?.image.url}
-              style={{ height: product.name.includes("Twin") && "290px" }}
+              src={product?.image.url}
+              style={{
+                objectFit: "contain"
+              }}
             />
             {/* <div className={classes.mediaCont}>
               {product?.assets?.map((el, ind) => {

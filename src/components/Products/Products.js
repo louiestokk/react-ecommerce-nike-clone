@@ -33,13 +33,13 @@ const Products = ({ title, desc }) => {
         <meta charSet="utf-8" />
         <title>
           {
-            "Strolly - Barnvagnar online - Hitta prisvärda och högkvalitativa vagnar till ditt barn."
+            "Strolly - Barnvagnar, duovagnar, syskonvagnar, resevagnar, terrängbarnvagnar och tillbehör online - Hitta prisvärda och högkvalitativa barnvagnar till ditt barn."
           }
         </title>
         <meta
           name="description"
           content={
-            "Letar du efter prisvärda barnvagnar online? Utforska vårt stora utbud av billiga barnvagnar på nätet och hitta den perfekta vagnen för ditt barn. Vårt sortiment inkluderar populära märken och modeller till överkomliga priser. Upptäck hur du kan spara pengar och tid genom att köpa din barnvagn hos oss idag!"
+            "Letar du efter prisvärda barnvagnar online? Utforska vårt stora utbud av billiga barnvagnar, duovagnar, syskonvagnar, resevagnar och terrängbarnvagnar. Hitta den perfekta barnvagnen för ditt barn hos oss. Vårt sortiment inkluderar populära märken och modeller till överkomliga priser. Upptäck hur du kan spara pengar och tid genom att köpa din barnvagn hos oss idag!"
           }
         />
       </Helmet>

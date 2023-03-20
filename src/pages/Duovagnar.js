@@ -1,5 +1,6 @@
 import React from "react";
 import Products from "../components/Products/Products";
+import { Helmet } from "react-helmet-async";
 const Duovagnar = () => {
   return (
     <div>
