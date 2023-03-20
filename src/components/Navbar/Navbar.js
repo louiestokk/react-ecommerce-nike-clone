@@ -58,17 +58,28 @@ const Navbar = ({ cart }) => {
       </div>
       {showHelpLinks && <HelpLinks setShowHelpLinks={setShowHelpLinks} />}
       <div className="icons-container">
-        <img
-          src={Logo}
-          alt="nike logo"
-          style={{
-            width: "65px",
-            height: "65px",
-            margin: "0.2rem 3rem",
-            cursor: "pointer"
-          }}
+        <div
           onClick={() => navigate("/")}
-        />
+          style={{ display: "flex", alignItems: "center" }}
+        >
+          <h4
+            className="shantel"
+            style={{ marginLeft: "1rem", fontSize: "1.5rem" }}
+          >
+            Strolly
+          </h4>
+          <img
+            src={"https://www.svgrepo.com/show/452628/stroller.svg"}
+            alt="logo"
+            style={{
+              width: "50px",
+              height: "45px",
+
+              cursor: "pointer"
+            }}
+          />
+        </div>
+
         <div
           style={{
             margin: "0.2rem 1rem",
@@ -126,30 +137,7 @@ const Navbar = ({ cart }) => {
             </Link>
           );
         })}
-        <Link
-          to="/jordan"
-          style={{
-            display: "flex",
-            margin: "1.5rem 0",
-            alignItems: "center",
-            color: "#111827"
-          }}
-        >
-          <SiJordan style={{ marginRight: "1rem" }} />
-          <p style={{ fontSize: "1.2rem" }}>Jordan</p>
-        </Link>
-        <Link
-          to="/converse"
-          style={{
-            display: "flex",
-            margin: "0rem 0",
-            alignItems: "center",
-            color: "#111827"
-          }}
-        >
-          <GiConverseShoe style={{ marginRight: "1rem" }} />
-          <p style={{ fontSize: "1.2rem" }}>Converse</p>
-        </Link>
+
         <h4
           style={{
             maxWidth: "300px",
@@ -158,8 +146,8 @@ const Navbar = ({ cart }) => {
             opacity: "0.6"
           }}
         >
-          Become a Nike Member for the best products, inspiration and stories in
-          sport. <Link to="/products">Learn more</Link>
+          Become a Member for the best products, inspiration and stories in baby
+          products. <Link to="/products">Learn more</Link>
         </h4>
         <div
           style={{
@@ -290,6 +278,7 @@ const Nav = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 4rem;
   }
   .nav-menu {
     position: absolute;
@@ -298,11 +287,11 @@ const Nav = styled.nav`
     z-index: 99;
     background: white;
     width: 100%;
-    height: 1200px;
+    height: 100vh;
     top: 0%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+
     align-items: center;
     font-size: 1.6rem;
   }
